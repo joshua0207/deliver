@@ -1,0 +1,28 @@
+
+.button {
+    background: -moz-linear-gradient(center top , #eeeeee, #cccccc) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+    color: #333333;
+    font-family: Arial,Helvetica,Serif;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 16px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #eeeeee;
+    vertical-align: middle;
+}
+.button:hover {
+    background: -moz-linear-gradient(center top , #dddddd, #bbbbbb) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #cccccc;
+    color: #333333;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #eeeeee;
+}
+.button:active {
+    background: -moz-linear-gradient(center top , #cccccc, #bbbbbb) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #cccccc;
+    color: #333333;
+    text-shadow: 0 1px 0 #eeeeee;
+}

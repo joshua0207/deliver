@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuProdTrsDAO">
+
+	<!-- <cache /> -->
+
+	<insert id="createMenuProduct" parameterType="MenuProduct">
+		insert into MENU_PRODUCT 
+		      ( MENU_PROD_ID, MENU_CAT_ID, SHOP_ID, MENU_PROD_NAME, MENU_PROD_COMM, MENU_PROD_COMM_DETAIL, 
+		        PIC_NAME, MENU_PRICE, ONSALE_PRICE, SORT, HOT_PRODUCT, HIDE_FLAG, UPDATE_DATE )
+		values ( #{menuProdId}, #{menuCatId}, #{shopId}, #{menuProdName}, #{menuProdComm}, #{menuProdCommDetail},
+				 #{picName}, #{menuPrice}, #{onsalePrice}, #{sort}, #{hotProduct}, #{hideFlag}, now() )
+	</insert>
+	
+	<insert id="createMenuItemType" parameterType="java.util.List">
+		insert into MENU_ITEM_TYPE 
+		      ( MENU_TYPE_ID, MENU_PROD_ID, MENU_ITME_ID, SHOP_ID, UPDATE_DATE )
+		values
+		<foreach collection="list" item="item" index="index" separator="," >
+		 (#{item.menuTypeId}, #{item.menuProdId}, #{item.menuItmeId}, #{item.shopId}, now())
+		</foreach> 
+	</insert>
+	
+	<update id="updateMenuProductById" parameterType="MenuProduct">
+		update MENU_PRODUCT
+		set PIC_NAME=#{picName},
+		    UPDATE_DATE = now()
+		where MENU_PROD_ID=#{menuProdId}
+	</update>
+	
+	<update id="updateMenuProductByKey" parameterType="MenuProduct">
+		update MENU_PRODUCT
+		set MENU_CAT_ID=#{menuCatId},
+			MENU_PROD_NAME=#{menuProdName},
+			MENU_PROD_COMM=#{menuProdComm},
+			MENU_PROD_COMM_DETAIL=#{menuProdCommDetail},
+			PIC_NAME=#{picName},
+			MENU_PRICE=#{menuPrice},
+			ONSALE_PRICE=#{onsalePrice},
+			SORT=#{sort},
+			HOT_PRODUCT=#{hotProduct},
+			HIDE_FLAG=#{hideFlag},
+		    UPDATE_DATE = now()
+		where MENU_PROD_ID=#{menuProdId}
+	</update>
+	
+	<delete id="deleteMenuItemTypeById" parameterType="map">
+		delete from MENU_ITEM_TYPE
+		where MENU_PROD_ID=#{menuProdId} AND SHOP_ID=#{shopId} 
+	</delete>
+	
+	<delete id="deleteMenuProductByProdId" parameterType="map">
+		delete from MENU_PRODUCT
+		where MENU_PROD_ID=#{menuProdId} AND SHOP_ID=#{shopId} 
+	</delete>
+
+</mapper>

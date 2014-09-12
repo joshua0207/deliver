@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.LoginQueryDAO">
+
+	<!-- <cache /> -->
+
+	<resultMap id="loginMap" type="LoginAdminVO">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="userPw" column="USER_PW" />
+		<result property="coName" column="CO_NAME" />
+		<result property="coNum" column="CO_NUM" />
+		<result property="coPeople" column="CO_PEOPLE" />
+		<result property="addrL" column="ADDR_L" />
+		<result property="addrC" column="ADDR_C" />
+		<result property="tel" column="TEL" />
+		<result property="mobilePhone" column="MOBILE_PHONE" />
+		<result property="telOrder" column="TEL_ORDER" />
+		<result property="email" column="EMAIL" />
+		<result property="crDate" column="CR_DATE" />
+		<result property="beginDate" column="BEGIN_DATE" />
+		<result property="endDate" column="END_DATE" />
+		<result property="shopLevel" column="SHOP_LEVEL" />
+		<result property="source" column="SOURCE" />
+		<result property="sendFunction" column="SEND_FUNCTION" />
+		<result property="sendOnlineOrder" column="SEND_ONLINE_ORDER" />
+		<result property="sendEmail" column="SEND_EMAIL" />
+		<result property="sendSms" column="SEND_SMS" />
+		<result property="sendFax" column="SEND_FAX" />
+		<result property="sendOrderPhone" column="SEND_MEMO" />
+		<result property="sendMemo" column="SEND_MEMO" />
+		<result property="emailAuth" column="EMAIL_AUTH" />
+		<result property="phoneAuth" column="PHONE_AUTH" />
+		<result property="addrCLng" column="ADDR_C_LNG" />
+		<result property="addrCLat" column="ADDR_C_LAT" />
+		<result property="serviceScopeType" column="SERVICE_SCOPE_TYPE" />
+	</resultMap>
+	
+	<resultMap id="shopMemDataMap" type="ShopMemData">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="userPw" column="USER_PW" />
+		<result property="coName" column="CO_NAME" />
+		<result property="mobilePhone" column="MOBILE_PHONE" />
+		<result property="email" column="EMAIL" />
+	</resultMap>
+	
+	<select id="findByShopidPassword" parameterType="map" resultMap="loginMap">
+		SELECT SHOP_ID, USER_PW, CO_NAME , CO_NUM, CO_PEOPLE, ADDR_L, ADDR_C, TEL, MOBILE_PHONE, TEL_ORDER,
+		EMAIL, CR_DATE, BEGIN_DATE, END_DATE, 
+		SHOP_LEVEL, SOURCE, SEND_FUNCTION, SEND_ONLINE_ORDER,SEND_EMAIL,SEND_SMS,SEND_FAX,
+		SEND_ORDER_PHONE, SEND_MEMO, EMAIL_AUTH, PHONE_AUTH, ADDR_C_LNG, ADDR_C_LAT, SERVICE_SCOPE_TYPE
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId} AND USER_PW = #{password}
+	</select>
+	
+	
+	<select id="findForgetPasswdByShopId" parameterType="string" resultMap="shopMemDataMap">
+		SELECT SHOP_ID, USER_PW, CO_NAME , MOBILE_PHONE, EMAIL
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+
+</mapper>

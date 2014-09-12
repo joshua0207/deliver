@@ -1,0 +1,144 @@
+@charset "UTF-8";
+body {
+	background-image: url(../../cbg-include/images/bk.gif);
+	font-family: Arial, Helvetica, sans-serif, "新細明體", Osaka, "標楷體";
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 600px;
+}
+#login_logo {
+	padding-top: 85px;
+}
+#login_line {
+	background-image: url(../../cbg-include/images/login_line.gif);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	height: 212px;
+	width: 1000px;
+	background-position: 0px;
+}
+#login_input      {
+	padding-top: 80px;
+	padding-left: 86px;
+}
+#login_btn      {
+	width: 60px;
+	margin-left: 120px;
+}
+#login_box  {
+	background-image: url(../../cbg-include/images/login_login.gif);
+	background-repeat: no-repeat;
+	height: 209px;
+	float: left;
+	width: 277px;
+	margin-left: 223px;
+}
+#login_text {
+	font-size: 14px;
+	text-align: right;
+	color: #666;
+}
+#login_forget_txt {
+	font-size: 14px;
+	color: #666;
+	text-align: right;
+	padding-top: 5px;
+	padding-right: 25px;
+}
+
+
+
+#login_join {
+	background-image: url(../../cbg-include/images/login_join.gif);
+	height: 209px;
+	width: 277px;
+	float: left;
+	margin-left: 12px;
+}
+#login_join_btn {
+	background-image: url(../../cbg-include/images/login_go_btn.png);
+	background-repeat: no-repeat;
+	margin-left: 110px;
+	margin-top: 150px;
+	font-size: 14px;
+	color: #FFF;
+	line-height: 50px;
+	height: 55px;
+	padding-top: 0px;
+	width: 60px;
+}
+
+#login_join_btn:hover	{
+	background-position: 0 -62px;
+}
+
+#login_submit	{
+	color: #ffffff;
+	border: none;
+	outline: none;
+	background: none;
+	background-image: url(../../cbg-include/images/login_btn.png);
+	background-repeat: no-repeat;
+	line-height: 1px;
+	font-size: 1px;
+	padding-bottom: 50px;
+	margin-left: 110px;
+	float: left;
+	width: 60px;
+	padding-left: 1px;
+}
+
+
+#login_submit:hover	{
+	background-position: 0 -62px;
+}
+
+/*.................Forget Password............*/
+#login_box_forget  {
+	background-image: url(../../cbg-include/images/forget_pass.gif);
+	background-repeat: no-repeat;
+	height: 209px;
+	float: left;
+	width: 277px;
+	margin-left: 223px;
+}
+
+#login_forget {
+	background-image: url(../../cbg-include/images/forget_help.gif);
+	height: 209px;
+	width: 277px;
+	float: left;
+	margin-left: 12px;
+	background-repeat: no-repeat;
+}
+
+#login_input_forget      {
+	padding-top: 98px;
+	padding-left: 80px;
+}
+
+#choice_forget      {
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#login_submit_forget	{
+	color: #ffffff;
+	border: none;
+	outline: none;
+	background: none;
+	background-image: url(../../cbg-include/images/login_go_btn.png);
+	background-repeat: no-repeat;
+	line-height: 1px;
+	font-size: 1px;
+	padding-bottom: 60px;
+	margin-left: 110px;
+	float: left;
+	width: 60px;
+	padding-left: 1px;
+	
+}
+#login_submit_forget:hover	{
+	background-position: 0 -62px;
+}

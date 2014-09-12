@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://jerryyang-pc:8443/svn/web"
+   revision="105"
+   last-author="shane"
+   url="https://jerryyang-pc:8443/svn/web/newshopadmin/WebContent/images/shopServiceScope/swf"
+   committed-rev="105"
+   kind="dir"
+   committed-date="2013-07-15T07:58:33.505000Z"/>
+<entry
+   name="circle.swf"
+   checksum="ec71354a7b33fc3784fb59e81bf088c8"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.646000Z"/>
+<entry
+   name="irregular.swf"
+   checksum="31175a5e40af22a483fbee9e3092fe23"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.725000Z"/>
+<entry
+   name="square.swf"
+   checksum="755be4c251604f30ead9218f3578ba68"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.619000Z"/>
+</wc-entries>

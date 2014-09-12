@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ServiceScopeQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="serviceScopeCircleMap" type="ServiceScopeCircle">
+		<result property="circleId" column="CIRCLE_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="circleCenter" column="CIRCLE_CENTER" />
+		<result property="circleTan" column="CIRCLE_TAN" />
+		<result property="distance" column="DISTANCE" />
+		<result property="maxLng" column="MAX_LNG" />
+		<result property="maxLat" column="MAX_LAT" />
+		<result property="minLng" column="MIN_LNG" />
+		<result property="minLat" column="MIN_LAT" />
+	</resultMap>
+	
+	
+	<select id="findServiceScopeByShopIdChk" parameterType="map" resultType="integer">
+		SELECT count(0) count
+		FROM SERVICE_SCOPE_CIRCLE
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findServiceScopeByShopId" parameterType="map" resultMap="serviceScopeCircleMap">
+		SELECT CIRCLE_ID, SHOP_ID, CIRCLE_CENTER, CIRCLE_TAN, DISTANCE, MAX_LNG, MAX_LAT, MIN_LNG, MIN_LAT
+		FROM SERVICE_SCOPE_CIRCLE
+		WHERE SHOP_ID = #{shopId}
+	</select>
+
+</mapper>

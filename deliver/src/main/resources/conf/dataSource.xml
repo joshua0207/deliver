@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	<!-- enable autowire -->
+	<context:annotation-config />
+	
+	<context:component-scan base-package="com.order" />
+	<!-- <context:exclude-filter type="regex" expression="com.taikoomotors.ep.dao.mybatis.*"/> 
+		</context:component-scan> -->
+
+	<!-- 引入jdbc配置文件 -->
+	<!-- <context:property-placeholder location="classpath:conf/jdbc.properties" /> -->
+	<!-- load properties -->
+	<bean id="configFiles" class="java.util.ArrayList">  
+    	<constructor-arg>   
+        <list>  
+             	<value>classpath:conf/jdbc.properties</value>
+             	<value>classpath:conf/path.properties</value>
+        </list>  
+    	</constructor-arg>  
+	</bean> 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" ref="configFiles"/>
+	</bean>	
+	
+	<!-- <bean id="dataSourceQuery"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.p6spy.engine.spy.P6SpyDriver" />
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${jdbc_query_url}" />
+		<property name="username" value="${jdbc_query_username}" />
+		<property name="password" value="${jdbc_query_password}" />
+	</bean> -->
+	
+	<bean id="dataSourceQuery" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+      <property name="driverClass">
+        <value>${jdbc_query_driverClassName}</value>
+      </property>
+      <property name="jdbcUrl">
+        <value>${jdbc_query_url}</value>
+      </property>
+      <property name="user">
+       <value>${jdbc_query_username}</value>
+      </property>
+      <property name="password">
+       <value>${jdbc_query_password}</value>
+      </property>
+      <property name="initialPoolSize"><value>10</value></property>
+      <property name="minPoolSize"><value>30</value></property>
+      <property name="maxPoolSize"><value>100</value></property>
+      <property name="acquireIncrement"><value>5</value></property>
+      <property name="maxIdleTime"><value>60</value></property>
+      <property name="maxStatements"><value>0</value></property>
+      <property name="checkoutTimeout"><value>30000</value></property>
+      <property name="idleConnectionTestPeriod"><value>60</value></property>
+    </bean>
+
+	<!-- 謮寫分離-> 只讀查詢 -->
+    <!-- <bean id="dataSourceQuery" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>${jdbc_query_driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc_query_url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc_query_username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc_query_password}</value>
+		</property>
+		最大?接?据??接?，?置?0?，表示?有限制
+		<property name="maxActive">
+			<value>20</value>
+		</property>
+		最大等待?接中的?量，?置?0?，表示?有限制
+		<property name="maxIdle">
+			<value>20</value>
+		</property>
+		最大等待秒?，?位?毫秒， 超?????出??信息
+		<property name="maxWait">
+			<value>60000</value>
+		</property>
+		連接池最小空間
+		<property name="minIdle">
+			<value>3</value>
+		</property>
+		是否自我中?，默?是 false
+		<property name="removeAbandoned">
+			<value>true</value>
+		</property>
+		几秒后?据?接?自???，在removeAbandoned?true，提供?值
+		<property name="removeAbandonedTimeout">
+			<value>180</value>
+		</property>
+		初始化連接大小
+		<property name="initialSize">
+			<value>1</value>
+		</property>
+		連接屬性
+		<property name="connectionProperties">
+			<value>clientEncoding=UTF-8</value>
+		</property>
+	</bean> -->
+
+	<!-- <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+		init-method="init" destroy-method="close"> <property name="driverClassName"> 
+		<value>${jdbc_query_driverClassName}</value> </property> <property name="url"> 
+		<value>${jdbc_query_url}</value> </property> <property name="username"> <value>${jdbc_query_username}</value> 
+		</property> <property name="password"> <value>${jdbc_query_password}</value> 
+		</property> 連接池最大使用連接數 <property name="maxActive"> <value>20</value> </property> 
+		初始化連接大小 <property name="initialSize"> <value>1</value> </property> 獲取連接最大等待時間 
+		<property name="maxWait"> <value>60000</value> </property> 連接池最大空間 <property 
+		name="maxIdle"> <value>20</value> </property> 連接池最小空間 <property name="minIdle"> 
+		<value>3</value> </property> 自動清除無用連接 <property name="removeAbandoned"> <value>true</value> 
+		</property> 清除無用連接的等待時間 <property name="removeAbandonedTimeout"> <value>180</value> 
+		</property> 連接屬性 <property name="connectionProperties"> <value>clientEncoding=UTF-8</value> 
+		</property> </bean> -->
+
+	<!-- mybatis (start) -->
+	<!-- define the SqlSessionFactory -->
+	<bean id="sqlSessionFactoryQuery" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceQuery" />
+		<property name="typeAliasesPackage" value="com.order.mode" />
+		<!-- <property name="configLocation" value="classpath:com/taikoomotors/ep/dao/mybatis/conf/mybatis-config.xml" 
+			/> -->
+		<!-- 分頁另一種方式直接配置在Mybatis xml  -->	
+		<!-- <property name="configLocation" value="classpath:com/order/dao/mybatis/conf/mybatis-config.xml"/> -->
+		<property name="mapperLocations" value="classpath*:com/order/dao/mybatis/maps/*.xml" />
+		<!-- 分頁 -->
+		<property name="plugins">
+	        <array>
+	            <ref bean="paginationInterceptor"/>
+	        </array>
+	    </property>
+	</bean>
+	<!-- 分頁 -->
+	<bean id="paginationInterceptor" class="com.github.miemiedev.mybatis.paginator.OffsetLimitInterceptor">
+		<property name="dialectClass" value="com.github.miemiedev.mybatis.paginator.dialect.MySQLDialect" />
+	</bean>
+	<!-- mybatis (end) -->
+
+	<bean id="transactionManagerQuery"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceQuery" />
+	</bean>
+
+	<bean id="baseTransactionProxyQuery"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="transactionManagerQuery" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="end*">PROPAGATION_REQUIRED</prop>
+				<prop key="cancel*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- <bean id="dataSourceTrs"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${jdbc_trs_url}" />
+		<property name="username" value="${jdbc_trs_username}" />
+		<property name="password" value="${jdbc_trs_password}" />
+	</bean>  -->
+	
+	<bean id="dataSourceTrs" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+      <property name="driverClass">
+        <value>${jdbc_trs_driverClassName}</value>
+      </property>
+      <property name="jdbcUrl">
+        <value>${jdbc_trs_url}</value>
+      </property>
+      <property name="user">
+       <value>${jdbc_trs_username}</value>
+      </property>
+      <property name="password">
+       <value>${jdbc_trs_password}</value>
+      </property>
+      <property name="initialPoolSize"><value>10</value></property>
+      <property name="minPoolSize"><value>30</value></property>
+      <property name="maxPoolSize"><value>100</value></property>
+      <property name="acquireIncrement"><value>5</value></property>
+      <property name="maxIdleTime"><value>60</value></property>
+      <property name="maxStatements"><value>0</value></property>
+      <property name="checkoutTimeout"><value>30000</value></property>
+      <property name="idleConnectionTestPeriod"><value>60</value></property>
+    </bean> 
+
+	<!-- <bean id="dataSourceTrs" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<value>${jdbc_trs_driverClassName}</value>
+		</property>
+		<property name="url">
+			<value>${jdbc_trs_url}</value>
+		</property>
+		<property name="username">
+			<value>${jdbc_trs_username}</value>
+		</property>
+		<property name="password">
+			<value>${jdbc_trs_password}</value>
+		</property>
+		最大?接?据??接?，?置?0?，表示?有限制
+		<property name="maxActive">
+			<value>20</value>
+		</property>
+		最大等待?接中的?量，?置?0?，表示?有限制
+		<property name="maxIdle">
+			<value>20</value>
+		</property>
+		最大等待秒?，?位?毫秒， 超?????出??信息
+		<property name="maxWait">
+			<value>60000</value>
+		</property>
+		連接池最小空間
+		<property name="minIdle">
+			<value>3</value>
+		</property>
+		是否自我中?，默?是 false
+		<property name="removeAbandoned">
+			<value>true</value>
+		</property>
+		几秒后?据?接?自???，在removeAbandoned?true，提供?值
+		<property name="removeAbandonedTimeout">
+			<value>180</value>
+		</property>
+		初始化連接大小
+		<property name="initialSize">
+			<value>1</value>
+		</property>
+		連接屬性
+		<property name="connectionProperties">
+			<value>clientEncoding=UTF-8</value>
+		</property>
+	</bean> -->
+
+
+	<!-- 謮寫分離-> 只寫入 新增、修改、刪除 -->
+	<!-- <bean id="dataSourceTrs" class="com.alibaba.druid.pool.DruidDataSource" 
+		init-method="init" destroy-method="close"> <property name="driverClassName"> 
+		<value>${jdbc_trs_driverClassName}</value> </property> <property name="url"> 
+		<value>${jdbc_trs_url}</value> </property> <property name="username"> <value>${jdbc_trs_username}</value> 
+		</property> <property name="password"> <value>${jdbc_trs_password}</value> 
+		</property> 連接池最大使用連接數 <property name="maxActive"> <value>20</value> </property> 
+		初始化連接大小 <property name="initialSize"> <value>1</value> </property> 獲取連接最大等待時間 
+		<property name="maxWait"> <value>60000</value> </property> 連接池最大空間 <property 
+		name="maxIdle"> <value>20</value> </property> 連接池最小空間 <property name="minIdle"> 
+		<value>3</value> </property> 自動清除無用連接 <property name="removeAbandoned"> <value>true</value> 
+		</property> 清除無用連接的等待時間 <property name="removeAbandonedTimeout"> <value>180</value> 
+		</property> 連接屬性 <property name="connectionProperties"> <value>clientEncoding=UTF-8</value> 
+		</property> </bean> -->
+
+	<bean id="sqlSessionFactoryTrs" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceTrs" />
+		<property name="typeAliasesPackage" value="com.order.mode" />
+		<!-- <property name="configLocation" value="classpath:com/taikoomotors/ep/dao/mybatis/conf/mybatis-config.xml" 
+			/> -->
+		<property name="mapperLocations" value="classpath*:com/order/dao/mybatis/maps/*.xml" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSourceTrs" />
+	</bean>
+
+	<bean id="baseTransactionProxyTrs"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="end*">PROPAGATION_REQUIRED</prop>
+				<prop key="cancel*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	
+		
+		<tx:annotation-driven transaction-manager="transactionManager" />
+
+</beans>

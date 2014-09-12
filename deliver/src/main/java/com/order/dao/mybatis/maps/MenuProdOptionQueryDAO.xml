@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuProdOptionQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="menuProductItemVOMap" type="MenuProductItemVO">
+		<result property="menuItmeId" column="MENU_ITME_ID" />
+		<result property="menuItmeName" column="MENU_ITME_NAME" />
+		<result property="menuChoice" column="MENU_CHOICE" />
+		<result property="menuItmeValue" column="MENU_ITME_VALUE" />
+		<result property="count" column="COUNT" />
+	</resultMap>
+	
+	<resultMap id="menuProductItemMap" type="MenuProductItem">
+		<result property="menuItmeId" column="MENU_ITME_ID" />
+		<result property="menuItmeName" column="MENU_ITME_NAME" />
+		<result property="menuChoice" column="MENU_CHOICE" />
+	</resultMap>
+	
+	<resultMap id="menuProductOptionValueMap" type="MenuProductOptionValue">
+		<result property="menuOptionId" column="MENU_OPTION_ID" />
+		<result property="menuItmeId" column="MENU_ITME_ID" />
+		<result property="menuItmeValue" column="MENU_ITME_VALUE" />
+		<result property="menuProdPrice" column="MENU_PROD_PRICE" />
+		<result property="menuProdPrefeix" column="MENU_PROD_PREFEIX" />
+		<result property="sort" column="SORT" />
+		<result property="hideFlag" column="HIDE_FLAG" />
+	</resultMap>
+	
+	<select id="findMenuProdOptionAndValueByShopId" parameterType="string" resultMap="menuProductItemVOMap">
+		SELECT MENU_ITME_ID, MENU_ITME_NAME, MENU_CHOICE, 
+		(select group_concat(MENU_ITME_VALUE separator ',') 
+		from MENU_PRODUCT_OPTION_VALUE where MENU_ITME_ID = A.MENU_ITME_ID ORDER BY SORT) as MENU_ITME_VALUE,
+		(SELECT count(0) FROM MENU_ITEM_TYPE WHERE MENU_ITME_ID = A.MENU_ITME_ID and SHOP_ID = A.SHOP_ID ) as COUNT
+		FROM MENU_PRODUCT_ITEM A
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findMenuProductItemByMenuItmeId" parameterType="string" resultMap="menuProductItemMap">
+		SELECT MENU_ITME_ID, MENU_ITME_NAME, MENU_CHOICE
+		FROM MENU_PRODUCT_ITEM
+		WHERE MENU_ITME_ID = #{menuItmeId}
+	</select>
+	
+	<select id="findMenuProductOptionValueByMenuItmeId" parameterType="string" resultMap="menuProductOptionValueMap">
+		SELECT MENU_OPTION_ID, MENU_ITME_ID, MENU_ITME_VALUE, MENU_PROD_PRICE, MENU_PROD_PREFEIX, SORT, HIDE_FLAG
+		FROM MENU_PRODUCT_OPTION_VALUE
+		WHERE MENU_ITME_ID = #{menuItmeId}
+	</select>
+	
+	<select id="findCountMenuItemTypeByKey" parameterType="map" resultType="integer">
+		SELECT count(0) count
+		FROM MENU_ITEM_TYPE
+		WHERE MENU_ITME_ID = #{menuItmeId} and SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findAllByShopId" parameterType="string" resultMap="menuProductItemMap">
+		SELECT MENU_ITME_ID, MENU_ITME_NAME, MENU_CHOICE
+		FROM MENU_PRODUCT_ITEM
+		WHERE SHOP_ID = #{shopId}
+	</select>
+
+</mapper>

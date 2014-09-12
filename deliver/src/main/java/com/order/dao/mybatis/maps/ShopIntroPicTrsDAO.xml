@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ShopIntroPicTrsDAO">
+
+	<!-- <cache /> -->
+
+
+
+	<insert id="createShopIntroPic" parameterType="ShopIntroducePic">
+		insert into SHOP_INTRODUCE_PIC 
+		      ( SHOP_INFO_ID, SHOP_ID, SHOP_CONTENT, 
+			   SHOP_ACTIVITY_NEWS, SHOP_MEMO, SHOP_INFO_DATE )
+		values ( #{shopInfoId}, #{shopId}, #{shopContent}, #{shopActivityNews},
+		        #{shopMemo}, now() )
+	</insert>
+	
+	<update id="updateShopIntroPic" parameterType="ShopIntroducePic">
+		update SHOP_INTRODUCE_PIC
+		set SHOP_CONTENT=#{shopContent}, 
+		    SHOP_ACTIVITY_NEWS=#{shopActivityNews},
+		    SHOP_MEMO=#{shopMemo},
+		    SHOP_INFO_DATE = now()
+		where SHOP_INFO_ID=#{shopInfoId} and SHOP_ID=#{shopId}
+	</update>
+	
+	<insert id="createShopLogoPic" parameterType="ShopIntroducePic">
+		insert into SHOP_INTRODUCE_PIC
+		      ( SHOP_INFO_ID, SHOP_ID, SHOP_LOGO_PATH, SHOP_LOGO_DATE )
+		values ( #{shopInfoId}, #{shopId}, #{shopLogoPath}, now() )
+	</insert>
+	
+	<update id="updateShopLogoPic" parameterType="ShopIntroducePic">
+		update SHOP_INTRODUCE_PIC
+		set SHOP_LOGO_PATH=#{shopLogoPath}, 
+		    SHOP_LOGO_DATE= now()
+		where SHOP_INFO_ID=#{shopInfoId} and SHOP_ID=#{shopId}
+	</update>
+	
+	<insert id="createRectangularBigPic" parameterType="ShopIntroducePic">
+		insert into SHOP_INTRODUCE_PIC
+		      ( SHOP_INFO_ID, SHOP_ID, SHOP_BIG_PATH, SHOP_BIG_DATE )
+		values ( #{shopInfoId}, #{shopId}, #{shopBigPath}, now() )
+	</insert>
+	
+	<update id="updateRectangularBigPic" parameterType="ShopIntroducePic">
+		update SHOP_INTRODUCE_PIC
+		set SHOP_BIG_PATH=#{shopBigPath}, 
+		    SHOP_BIG_DATE= now()
+		where SHOP_INFO_ID=#{shopInfoId} and SHOP_ID=#{shopId}
+	</update>
+	
+	<insert id="createShopAllPic" parameterType="ShopAllPicture">
+		insert into SHOP_ALL_PICTURE
+		      ( UPLO_ID, SHOP_ID, UPLO_PATH, UPLO_DESCRP, UPLO_TRANS_DATE )
+		values ( #{uploId}, #{shopId}, #{uploPath}, #{uploDescrp}, now() )
+	</insert>
+	
+	<update id="updateShopPicMessage" parameterType="ShopAllPicture">
+		update SHOP_ALL_PICTURE
+		set UPLO_DESCRP=#{uploDescrp}, 
+		    UPLO_TRANS_DATE= now()
+		where SHOP_ID=#{shopId} and UPLO_PATH=#{uploPath}  
+	</update>
+	
+	<delete id="deleteShopPic" parameterType="ShopAllPicture">
+		delete from SHOP_ALL_PICTURE
+		where SHOP_ID=#{shopId} and UPLO_PATH=#{uploPath}
+	</delete>
+
+</mapper>

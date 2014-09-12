@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://jerryyang-pc:8443/svn/web"
+   revision="90"
+   last-author="chin"
+   uuid="f0bc95c1-2b9a-5648-9f52-c1e2683f2188"
+   url="https://jerryyang-pc:8443/svn/web/newshopadmin/WebContent/js/jquery/css/redmond"
+   committed-rev="28"
+   kind="dir"
+   committed-date="2013-06-06T00:55:51.354165Z"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   name="jquery-ui-1.10.3.custom.css"
+   checksum="10ccdbb8075f1db3f77369c45bcd7df8"
+   last-author="chin"
+   text-time="2013-06-06T00:55:51.354000Z"
+   committed-rev="28"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"/>
+<entry
+   name="jquery-ui-1.10.3.custom.min.css"
+   checksum="605c809188f581103c23f836fb118f68"
+   last-author="chin"
+   text-time="2013-06-06T00:55:51.354000Z"
+   committed-rev="28"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"/>
+</wc-entries>

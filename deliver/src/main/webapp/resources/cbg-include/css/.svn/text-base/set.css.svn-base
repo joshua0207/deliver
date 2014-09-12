@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+a:focus{outline:0;}
+button{border:0 none;cursor:pointer;}
+.setForm{
+	width:530px;
+	height:auto;
+	color:#9b9b9b;
+	}
+.or_word{
+	color:#ff7826;
+	background-color:#ffe2c8;
+	font-size:13px;
+	font-family:"微軟正黑體";
+	margin:0;
+	padding:0;
+	border-bottom:#FFF 3px solid;
+	}
+.or_word2{
+	color:#ff7826;
+	font-size:13px;
+	font-family:"微軟正黑體";
+	margin:0;
+	padding:0;
+	}
+.glay_word{
+	color:#9b9b9b;
+	font-size:12px;
+	padding:5px;
+	}
+.glay_word a{
+	color:#9b9b9b;
+	text-decoration:none;
+	}
+.glay_word a:hover{
+	color:#4f4f4f;
+	text-decoration:none;
+	}
+.setFuctionForm{
+	width:530px;
+	height:auto;
+	}
+.setFuctionTitle{
+	width:530px;
+	height:26px;
+	background-image:url(../images/set_title.jpg);
+	background-repeat:no-repeat;
+	color:#FFF;
+	}
+.setFuctionTitle ul{
+	margin:0;
+	padding:5px 8px 5px 20px;
+	}
+.setFuctionTitle ul li{
+	margin:0;
+	padding:0;
+	float:left;
+	list-style:none;
+	}
+.setFuctionTitle ul li.detailtitle{
+	margin:0;
+	padding:0;
+	padding-left:50px;
+	color:#000;
+	font-weight:bold;
+	}
+.stepArea{
+	width:530px;
+	height:auto;
+	margin-top:10px;
+	}
+
+.stepTitleLeft{
+	float:left;
+	border-left:#ff7826 4px solid;
+	color:#ff7826;
+	height:20px;
+	font-family:"微軟正黑體";
+	font-weight:bold;
+	font-size:13px;
+	padding:2px 0 ;
+	text-indent:5px;
+	}
+.stepDetail{
+	float:right;
+	color:#353535;
+	margin:2px 0 0 0;
+	padding:0;
+	width:468px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:normal;
+	font-size:13px;
+	line-height:20px;
+	}

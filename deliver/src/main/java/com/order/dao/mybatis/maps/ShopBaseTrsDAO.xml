@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ShopBaseTrsDAO">
+
+	<!-- <cache /> -->
+	
+
+	<update id="updateShopDataAll" parameterType="ShopBaseManagerVO">
+		update SHOPMEMDATA
+		set CO_NAME=#{coName},
+			CO_NUM=#{coNum},
+			CO_PEOPLE=#{coPeople},
+			ADDR_L=#{addrL},
+			ADDR_C_LAT=#{addrCLat},
+			ADDR_C_LNG=#{addrCLng},
+			TEL=#{tel},
+			MOBILE_PHONE=#{mobilePhone},
+			TEL_ORDER=#{telOrder},
+			EMAIL=#{email},
+			ADDR_L_CITY=#{addrLCity},
+			ADDR_L_CANTON=#{addrLCanton},
+			ADDR_L_DETAIL=#{addrLDetail},
+			KEYWORD=#{keyword},
+			INVOICE_NAME=#{invoiceName}
+		where SHOP_ID=#{shopId}
+	</update>
+	
+	<delete id="deleteMyShopTypeId" parameterType="map">
+		delete from MY_SHOP_TYPE_ID
+		where SHOP_ID=#{shopId}
+	</delete>
+	
+	<insert id="insertMyShopTypeId" parameterType="MyShopTypeIdVO">
+		insert into MY_SHOP_TYPE_ID ( SHOP_ID, SHOP_TYPE_ID )
+		values (#{shopId}, #{shopTypeId})
+	</insert>
+	
+	<update id="updatePassword" parameterType="map">
+		update SHOPMEMDATA
+		set USER_PW=#{newPassword}
+		where SHOP_ID=#{shopId} and USER_PW=#{password}
+	</update>
+	
+	<insert id="createShopDataAll" parameterType="ShopBaseManagerVO">
+		insert into SHOPMEMDATA ( SHOP_ID, USER_PW, CO_NAME, CO_NUM, CO_PEOPLE, ADDR_L, ADDR_L_CITY, ADDR_L_CANTON, ADDR_L_DETAIL
+		, ADDR_C_LNG, ADDR_C_LAT, TEL, MOBILE_PHONE, EMAIL, TEL_ORDER,
+		CR_DATE, BEGIN_DATE, SOURCE, KEYWORD, INVOICE_TYPE, INVOICE_NAME
+		, SHOP_PARAMETER, MOBILE_PARAMETER, SERVICE_SCOPE_TYPE )
+		values (#{shopId}, #{userPw} , #{coName}, #{coNum}, #{coPeople}, #{addrL}, #{addrLCity}, #{addrLCanton}
+		, #{addrLDetail}, #{addrCLng}, #{addrCLat}, #{tel}, #{mobilePhone}, #{email}, #{telOrder}, now(), now(), #{source}
+		, #{keyword}, #{invoiceType}, #{invoiceName}, #{shopParameter}, #{mobileParameter}, #{serviceScopeType} )
+	</insert>
+	
+	
+	
+
+</mapper>

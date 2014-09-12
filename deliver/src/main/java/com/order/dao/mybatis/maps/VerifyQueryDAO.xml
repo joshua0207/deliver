@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.VerifyQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="shopBaseVOMap" type="ShopBaseManagerVO">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="userPw" column="USER_PW" />
+		<result property="coName" column="CO_NAME" />
+		<result property="coNum" column="CO_NUM" />
+		<result property="coPeople" column="CO_PEOPLE" />
+		<result property="addrL" column="ADDR_L" />
+		<result property="addrLCity" column="ADDR_L_CITY" />
+		<result property="addrLCanton" column="ADDR_L_CANTON" />
+		<result property="addrLDetail" column="ADDR_L_DETAIL" />
+		<result property="addrC" column="ADDR_C" />
+		<result property="addrCCity" column="ADDR_C_CITY" />
+		<result property="addrCCanton" column="ADDR_C_CANTON" />
+		<result property="addrCDetail" column="ADDR_C_DETAIL" />
+		<result property="tel" column="TEL" />
+		<result property="mobilePhone" column="MOBILE_PHONE" />
+		<result property="telOrder" column="TEL_ORDER" />
+		<result property="email" column="EMAIL" />
+		<result property="invoiceType" column="INVOICE_TYPE" />
+		<result property="invoiceName" column="INVOICE_NAME" />
+		<result property="identNum" column="IDENT_NUM" />
+		<result property="shopParameter" column="SHOP_PARAMETER" />
+		<result property="emailAuth" column="EMAIL_AUTH" />
+		<result property="mobileParameter" column="MOBILE_PARAMETER" />
+		<result property="phoneAuth" column="PHONE_AUTH" />
+	</resultMap>
+	
+	<resultMap id="customPoSmsMap" type="CustomPoSms">
+		<result property="orderId" column="ORDER_ID" />
+		<result property="msgId" column="MSG_ID" />
+		<result property="statusCode" column="STATUS_CODE" />
+		<result property="phoneNum" column="PHONE_NUM" />
+		<result property="updateDate" column="UPDATE_DATE" />
+		<result property="statusCodeDesc" column="STATUS_CODE_DESC" />
+		<result property="relationId" column="RELATION_ID" />
+	</resultMap>
+
+	<select id="findParameterAuthByShopId" parameterType="map" resultMap="shopBaseVOMap">
+		SELECT SHOP_ID, CO_NAME, EMAIL, SHOP_PARAMETER, EMAIL_AUTH, MOBILE_PARAMETER, PHONE_AUTH
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findSmsByMsgIdPhoneNum" parameterType="map" resultMap="customPoSmsMap">
+		SELECT ORDER_ID, MSG_ID, STATUS_CODE, PHONE_NUM, UPDATE_DATE, STATUS_CODE_DESC, RELATION_ID
+		FROM CUSTOM_PO_SMS
+		WHERE MSG_ID = #{msgId} AND PHONE_NUM = #{phoneNum}
+	</select>
+	
+
+</mapper>

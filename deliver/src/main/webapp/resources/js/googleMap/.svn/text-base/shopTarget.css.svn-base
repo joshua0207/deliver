@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.googleMapBg{
+	width:123px;
+	height:86px;
+	background-image:url(/cbg-include/images/shophome/imhere_bg.png);
+	background-repeat:no-repeat;
+
+	}
+.googleMapBg p{
+	margin:0;
+	position:relative;
+	width:10px;
+	height:10px;
+	top:6px;
+	left:105px;
+	}
+.googleMapBg p.whereStore{
+	margin:0;
+	position:relative;
+	width:105px;
+	height:30px;
+	top:14px;
+	left:10px;
+	color:#e83428;
+	}
+.googleMapBg p.whereStoreIcon{
+	position:relative;
+	top:20px;
+	left:10px;
+	}		
+	
+.shopIconInfoDiv{
+	text-align:center;
+}	
+.shopIconInfoText{
+	color:#000;
+}		

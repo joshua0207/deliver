@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuProdOptionTrsDAO">
+
+	<!-- <cache /> -->
+
+	<insert id="createMenuProductItem" parameterType="MenuProductItem">
+		insert into MENU_PRODUCT_ITEM 
+		      ( MENU_ITME_ID, SHOP_ID, MENU_ITME_NAME, MENU_CHOICE, 
+			   	UPDATE_DATE )
+		values ( #{menuItmeId}, #{shopId}, #{menuItmeName}, #{menuChoice},
+		         now() )
+	</insert>
+	
+	<insert id="createMenuProductOptionValue" parameterType="java.util.List">
+		insert into MENU_PRODUCT_OPTION_VALUE 
+		      ( MENU_OPTION_ID, MENU_ITME_ID, SHOP_ID, MENU_ITME_VALUE, MENU_PROD_PRICE,
+			   MENU_PROD_PREFEIX, SORT, HIDE_FLAG, UPDATE_DATE )
+		values 
+		<foreach collection="list" item="item" index="index" separator="," >
+		 (#{item.menuOptionId},#{item.menuItmeId},#{item.shopId},#{item.menuItmeValue},#{item.menuProdPrice},
+		  #{item.menuProdPrefeix},#{item.sort},#{item.hideFlag} , now())
+		</foreach> 
+	</insert>
+	
+	<update id="updateMenuProductItem" parameterType="MenuProductItem">
+		update MENU_PRODUCT_ITEM
+		set MENU_ITME_NAME=#{menuItmeName}, 
+		    MENU_CHOICE=#{menuChoice},
+		    UPDATE_DATE = now()
+		where MENU_ITME_ID=#{menuItmeId}
+	</update>
+	
+	<delete id="deleteMenuProductOptionValue" parameterType="string">
+		delete from MENU_PRODUCT_OPTION_VALUE
+		where MENU_ITME_ID=#{menuItmeId}
+	</delete>
+	
+	<delete id="deleteMenuProductItem" parameterType="string">
+		delete from MENU_PRODUCT_ITEM
+		where MENU_ITME_ID=#{menuItmeId}
+	</delete>
+
+</mapper>

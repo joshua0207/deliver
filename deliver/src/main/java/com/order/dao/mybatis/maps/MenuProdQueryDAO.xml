@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuProdQueryDAO">
+
+	<!-- <cache /> -->
+	
+ 	<resultMap id="menuProductVOMap" type="MenuProductVO">
+		<result property="menuProdId" column="MENU_PROD_ID" />
+		<result property="menuCatId" column="MENU_CAT_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="menuProdName" column="MENU_PROD_NAME" />
+		<result property="menuProdComm" column="MENU_PROD_COMM" />
+		<result property="menuProdCommDetail" column="MENU_PROD_COMM_DETAIL" />
+		<result property="picName" column="PIC_NAME" />
+		<result property="menuPrice" column="MENU_PRICE" />
+		<result property="onsalePrice" column="ONSALE_PRICE" />
+		<result property="sort" column="SORT" />
+		<result property="hotProduct" column="HOT_PRODUCT" />
+		<result property="hideFlag" column="HIDE_FLAG" />
+		<result property="orderCount" column="ORDER_COUNT" />
+	</resultMap>
+	
+	<resultMap id="menuProductMap" type="MenuProduct">
+		<result property="menuProdId" column="MENU_PROD_ID" />
+		<result property="menuCatId" column="MENU_CAT_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="menuProdName" column="MENU_PROD_NAME" />
+		<result property="menuProdComm" column="MENU_PROD_COMM" />
+		<result property="menuProdCommDetail" column="MENU_PROD_COMM_DETAIL" />
+		<result property="picName" column="PIC_NAME" />
+		<result property="menuPrice" column="MENU_PRICE" />
+		<result property="onsalePrice" column="ONSALE_PRICE" />
+		<result property="sort" column="SORT" />
+		<result property="hotProduct" column="HOT_PRODUCT" />
+		<result property="hideFlag" column="HIDE_FLAG" />
+	</resultMap>
+	
+	<select id="findMenuProductByShopId" parameterType="string" resultMap="menuProductVOMap">
+		SELECT MENU_PROD_ID, MENU_CAT_ID, SHOP_ID, MENU_PROD_NAME, MENU_PROD_COMM, MENU_PROD_COMM_DETAIL,
+			   PIC_NAME, MENU_PRICE, ONSALE_PRICE, SORT, HOT_PRODUCT, HIDE_FLAG,
+			   ( SELECT count(0) FROM SHOP_PO_DETL WHERE ITEM_ID = A.MENU_PROD_ID AND  SHOP_ID = A.SHOP_ID ) as ORDER_COUNT
+		FROM MENU_PRODUCT A
+		WHERE SHOP_ID = #{shopId}
+		ORDER BY SORT
+	</select>
+	
+	<select id="findMenuProductByMenuProdId" parameterType="string" resultMap="menuProductVOMap">
+		SELECT MENU_PROD_ID, MENU_CAT_ID, SHOP_ID, MENU_PROD_NAME, MENU_PROD_COMM, MENU_PROD_COMM_DETAIL,
+			   PIC_NAME, MENU_PRICE, ONSALE_PRICE, SORT, HOT_PRODUCT, HIDE_FLAG
+		FROM MENU_PRODUCT
+		WHERE MENU_PROD_ID = #{menuProdId}
+	</select>
+	
+	<select id="findMenuItemTypeByKey" parameterType="string" resultType="string">
+		SELECT 
+	    GROUP_CONCAT(MENU_ITME_ID SEPARATOR ',') 
+	    FROM MENU_ITEM_TYPE 
+	    WHERE MENU_PROD_ID = #{menuProdId} AND SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findShopPoDetlByKey" parameterType="map" resultType="integer">
+		SELECT count(0) as count FROM SHOP_PO_DETL 
+		WHERE ITEM_ID = #{menuProdId}
+		AND  SHOP_ID = #{shopId} 
+	</select>
+
+</mapper>

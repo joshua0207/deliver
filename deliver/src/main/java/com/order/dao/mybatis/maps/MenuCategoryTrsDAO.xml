@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuCategoryTrsDAO">
+
+	<!-- <cache /> -->
+
+	<insert id="createMenuCategory" parameterType="MenuCategory">
+		insert into MENU_CATEGORY 
+		      ( MENU_CAT_ID, SHOP_ID, MENU_CAT_NAME, MENU_CAT_NOTE, 
+			   SORT, HIDE_FLAG, UPDATE_DATE )
+		values ( #{menuCatId}, #{shopId}, #{menuCatName}, #{menuCatNote},
+		        #{sort}, #{hideFlag}, now() )
+	</insert>
+	
+	<update id="updateMenuCategory" parameterType="MenuCategory">
+		update MENU_CATEGORY
+		set MENU_CAT_NAME=#{menuCatName}, 
+		    MENU_CAT_NOTE=#{menuCatNote},
+		    SORT=#{sort},
+		    HIDE_FLAG=#{hideFlag},
+		    UPDATE_DATE = now()
+		where MENU_CAT_ID=#{menuCatId}
+	</update>
+	
+	<delete id="deleteMenuCategory" parameterType="string">
+		delete from MENU_CATEGORY
+		where MENU_CAT_ID=#{menuCatId}
+	</delete>
+
+</mapper>

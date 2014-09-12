@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ServiceTimeQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="serviceTimeDayMap" type="ServiceTimeDay">
+		<result property="serviceId" column="SERVICE_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="serviceTimeBegin" column="SERVICE_TIME_BEGIN" />
+		<result property="serviceMinuteBegin" column="SERVICE_MINUTE_BEGIN" />
+		<result property="serviceTimeEnd" column="SERVICE_TIME_END" />
+		<result property="serviceMinuteEnd" column="SERVICE_MINUTE_END" />
+		<result property="serviceDay" column="SERVICE_DAY" />
+	</resultMap>
+	
+	<resultMap id="sendTimeDayMap" type="SendTimeDay">
+		<result property="sendId" column="SEND_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="sendTimeBegin" column="SEND_TIME_BEGIN" />
+		<result property="sendMinuteBegin" column="SEND_MINUTE_BEGIN" />
+		<result property="sendTimeEnd" column="SEND_TIME_END" />
+		<result property="sendMinuteEnd" column="SEND_MINUTE_END" />
+		<result property="sendDay" column="SEND_DAY" />
+	</resultMap>
+	
+	<resultMap id="shopHoliDayMap" type="ShopHoliDay">
+		<result property="holiId" column="HOLI_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="holiDate" column="HOLI_DATE" />
+	</resultMap>
+	
+	<select id="findServiceTimeDayByShopId" parameterType="map" resultMap="serviceTimeDayMap">
+		SELECT SERVICE_ID, SHOP_ID, SERVICE_TIME_BEGIN, SERVICE_MINUTE_BEGIN, SERVICE_TIME_END, SERVICE_MINUTE_END, SERVICE_DAY 
+		FROM SERVICE_TIME_DAY
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findSendTimeDayByShopId" parameterType="map" resultMap="sendTimeDayMap">
+		SELECT SEND_ID, SHOP_ID, SEND_TIME_BEGIN, SEND_MINUTE_BEGIN, SEND_TIME_END, SEND_MINUTE_END, SEND_DAY 
+		FROM SEND_TIME_DAY
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findHoliDayByShopId" parameterType="map" resultMap="shopHoliDayMap">
+		SELECT HOLI_ID, SHOP_ID, HOLI_DATE
+		FROM SHOP_HOLI_DAY
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+
+</mapper>

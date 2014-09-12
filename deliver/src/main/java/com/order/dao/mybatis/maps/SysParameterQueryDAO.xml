@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.SysParameterQueryDAO">
+
+	<!-- <cache /> -->
+
+	<resultMap id="sysParameterMap" type="SysParameterVO">
+		<result property="SYSTEM_VALUE_ID" column="SYSTEM_VALUE_ID" />
+		<result property="SYSTEM_ID" column="SYSTEM_ID" />
+		<result property="SYSTEM_PARAMETER_ID" column="SYSTEM_PARAMETER_ID" />
+		<result property="SYSTEM_VALUE" column="SYSTEM_VALUE" />
+		<result property="SYSTEM_REMARK" column="SYSTEM_REMARK" />
+		<result property="UPDATE_DATE" column="UPDATE_DATE" />
+		<result property="UPDATE_NAME" column="UPDATE_NAME" />
+	</resultMap>
+	
+	
+	<select id="findSysParameterDefault" parameterType="map" resultMap="sysParameterMap">
+		SELECT SYSTEM_VALUE_ID, SYSTEM_ID, SYSTEM_PARAMETER_ID,
+		  SYSTEM_VALUE, SYSTEM_REMARK,
+		  DATE_FORMAT(UPDATE_DATE, '%Y-%m-%d %T') UPDATE_DATE, UPDATE_NAME
+		  FROM SYSTEM_PARAMETER
+		  ORDER BY SYSTEM_ID, SYSTEM_PARAMETER_ID
+	</select>
+	
+	<select id="findSysParameterZero" parameterType="map" resultMap="sysParameterMap">
+		SELECT SYSTEM_VALUE_ID, SYSTEM_ID, SYSTEM_PARAMETER_ID,
+		  SYSTEM_VALUE, SYSTEM_REMARK,
+		  DATE_FORMAT(UPDATE_DATE, '%Y-%m-%d %T') UPDATE_DATE, UPDATE_NAME
+		  FROM SYSTEM_PARAMETER
+		  ORDER BY SYSTEM_ID, SYSTEM_PARAMETER_ID
+	</select>
+	
+	<select id="findSysParameterOne" parameterType="map" resultMap="sysParameterMap">
+		SELECT SYSTEM_VALUE_ID, SYSTEM_ID, SYSTEM_PARAMETER_ID,
+		  SYSTEM_VALUE, SYSTEM_REMARK,
+		  DATE_FORMAT(UPDATE_DATE, '%Y-%m-%d %T') UPDATE_DATE, UPDATE_NAME
+		  FROM SYSTEM_PARAMETER
+		  WHERE SYSTEM_ID = #{systemId}
+		  ORDER BY SYSTEM_PARAMETER_ID
+	</select>
+	
+	<select id="findSysParameterTwo" parameterType="map" resultMap="sysParameterMap">
+		SELECT SYSTEM_VALUE_ID, SYSTEM_ID, SYSTEM_PARAMETER_ID,
+		  SYSTEM_VALUE, SYSTEM_REMARK,
+		  DATE_FORMAT(UPDATE_DATE, '%Y-%m-%d %T') UPDATE_DATE, UPDATE_NAME
+		  FROM SYSTEM_PARAMETER
+		  WHERE SYSTEM_ID = #{systemId}
+		  AND SYSTEM_PARAMETER_ID = #{systemParameterId}
+	</select>
+
+</mapper>

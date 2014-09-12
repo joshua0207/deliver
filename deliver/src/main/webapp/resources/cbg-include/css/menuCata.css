@@ -1,0 +1,137 @@
+@charset "UTF-8";
+.addFormBtn{
+	height:27px;
+	margin-bottom:10px;
+	}
+.addFormBtn ul{
+	margin:0;
+	padding:0;
+	}	
+.addFormBtn ul li{
+	margin:0;
+	list-style:none;
+	width:61px;
+	height:27px;
+	padding-right:10px;
+	float:left;
+	}
+.addpro_Btn{
+	width:61px;
+	height:27px;
+	display:block;
+	text-indent:-9999px;
+	background-image:url(/cbg-include/images/menu/addpro_Btn.png);
+	background-repeat:no-repeat;
+	border:none 0;
+	cursor:pointer;
+	margin-bottom:5px;
+	}
+.delate_Btn{
+	width:61px;
+	height:27px;
+	display:block;
+	text-indent:-9999px;
+	background-image:url(/cbg-include/images/menu/delate_btn.png);
+	background-repeat:no-repeat;
+	border:none 0;
+	cursor:pointer;
+	margin-bottom:5px;
+	}
+.orangeSort{
+	width:200px;
+	height:15px;
+	background-color:#ffdbc2;
+	border:#FFF 2px solid;
+	text-align:center;
+	padding:5px;
+	color:#333;
+	font-size:12px;
+	}
+.orangeSort1{
+	width:63px;
+	height:15px;
+	background-color:#ffdbc2;
+	border:#FFF 2px solid;
+	text-align:center;
+	padding:5px;
+	color:#333;
+	font-size:12px;
+	}	
+.orangeCheck{
+	width:30px;
+	height:15px;
+	background-color:#ffdbc2;
+	border:#FFF 2px solid;
+	text-align:center;
+	padding:5px;
+	color:#333;
+	}
+.sortName{
+	width:200px;
+	padding:5px;
+	color:#4f4f4f;
+	line-height:16px;
+	font-size:12px;
+	}
+.editWord{
+	color:#000;
+	font-size:12px;
+	}
+.editWord a{
+	color:#000;
+	text-decoration:underline;	
+	}
+.editWord a:hover{
+	color:#000;
+	text-decoration:none;	
+	}
+.bor{border-bottom:#ffceab 1px solid;}
+
+.saveCancelBtn{
+	height:27px;
+	margin-bottom:10px;
+	}
+.saveCancelBtn ul{
+	margin:0;
+	padding:0;
+	}	
+.saveCancelBtn ul li{
+	margin:0;
+	list-style:none;
+	width:61px;
+	height:27px;
+	padding-right:10px;
+	float:left;
+	}
+.save_Btn{
+	width:61px;
+	height:27px;
+	display:block;
+	text-indent:-9999px;
+	background-image:url(/cbg-include/images/menu/save_Btn.png);
+	background-repeat:no-repeat;
+	border:none 0;
+	cursor:pointer;
+	margin-bottom:5px;
+	}
+.cancel_Btn{
+	width:61px;
+	height:27px;
+	display:block;
+	text-indent:-9999px;
+	background-image:url(/cbg-include/images/menu/cancel_Btn.png);
+	background-repeat:no-repeat;
+	border:none 0;
+	cursor:pointer;
+	margin-bottom:5px;
+	}
+.orangeSortTitle{
+	width:60px;
+	background-color:#ffdbc2;
+	border:#FFF 2px solid;
+	text-align:center;
+	padding:3px;
+	color:#333;
+	font-size:12px;
+	}
+a:focus{outline:0;}

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   name=""
+   repos="https://jerryyang-pc:8443/svn/web"
+   revision="90"
+   last-author="chin"
+   uuid="f0bc95c1-2b9a-5648-9f52-c1e2683f2188"
+   url="https://jerryyang-pc:8443/svn/web/newshopadmin/WebContent/js/jquery/css/ui-lightness/images"
+   committed-rev="28"
+   kind="dir"
+   committed-date="2013-06-06T00:55:51.354165Z"/>
+<entry
+   name="animated-overlay.gif"
+   checksum="2b912f7c0653008ca28ebacda49025e7"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.374000Z"/>
+<entry
+   name="ui-bg_diagonals-thick_18_b81900_40x40.png"
+   checksum="0d9616540b80a793a6d3ebe307cd62ad"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.358000Z"/>
+<entry
+   name="ui-bg_diagonals-thick_20_666666_40x40.png"
+   checksum="e4673c5e8813d9d6329e93d61ff86d33"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.405000Z"/>
+<entry
+   name="ui-bg_flat_10_000000_40x100.png"
+   checksum="5db78b9075704fea7f54c55d85b45b61"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.390000Z"/>
+<entry
+   name="ui-bg_glass_100_f6f6f6_1x400.png"
+   checksum="a958e0b7e27a57faf5f8d500ecf3336c"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.421000Z"/>
+<entry
+   name="ui-bg_glass_100_fdf5ce_1x400.png"
+   checksum="3cf445fa5ffd715b911024f01c781df9"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.390000Z"/>
+<entry
+   name="ui-bg_glass_65_ffffff_1x400.png"
+   checksum="d0c48c2c5d5d3e6da4b5941939bfd9ae"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.405000Z"/>
+<entry
+   name="ui-bg_gloss-wave_35_f6a828_500x100.png"
+   checksum="4db98c564fb191814c5ff9a9a64255f8"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.358000Z"/>
+<entry
+   name="ui-bg_highlight-soft_100_eeeeee_1x100.png"
+   checksum="1e60e277f40fd5eb7a8127766b635314"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.421000Z"/>
+<entry
+   name="ui-bg_highlight-soft_75_ffe45c_1x100.png"
+   checksum="d734bd1ea02e92e0f6fd7efe52113b20"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.374000Z"/>
+<entry
+   name="ui-icons_222222_256x240.png"
+   checksum="a1b3887a86cf1791f23c0b53b4d3585f"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.452000Z"/>
+<entry
+   name="ui-icons_228ef1_256x240.png"
+   checksum="73044fed6bab2c5ed02eed93b7d3adaa"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.405000Z"/>
+<entry
+   name="ui-icons_ef8c08_256x240.png"
+   checksum="1eec256e4f7b8324e619aae36ecfbfbd"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.358000Z"/>
+<entry
+   name="ui-icons_ffd27a_256x240.png"
+   checksum="c1a79bd65be08aa2be391cba2321f448"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.421000Z"/>
+<entry
+   name="ui-icons_ffffff_256x240.png"
+   checksum="e3f4748b19b87aadaa924d85f0882432"
+   last-author="chin"
+   committed-rev="28"
+   text-time="2013-06-06T00:55:51.354000Z"
+   kind="file"
+   committed-date="2013-06-06T00:55:51.354165Z"
+   prop-time="2013-06-06T01:12:06.390000Z"/>
+</wc-entries>

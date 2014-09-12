@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.WebSettingQueryDAO">
+
+	<!-- <cache /> -->
+	
+	
+	<resultMap id="shopDataVOMap" type="ShopBaseManagerVO">
+		<result property="sendFunction" column="SEND_FUNCTION" />
+		<result property="sendOnlineOrder" column="SEND_ONLINE_ORDER" />
+		<result property="sendWaitTime" column="SEND_WAIT_TIME" />
+		<result property="sendMinAmount" column="SEND_MIN_AMOUNT" />
+		<result property="sendOrderWay" column="SEND_ORDER_WAY" />
+		<result property="sendEmail" column="SEND_EMAIL" />
+		<result property="sendSms" column="SEND_SMS" />
+		<result property="sendAndroid" column="SEND_ANDROID" />
+	</resultMap>
+	
+	<select id="findSendSettingByShopIdChk" parameterType="string" resultType="integer">
+		SELECT count(0) count
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findSendSettingByShopId" parameterType="string" resultMap="shopDataVOMap">
+		  SELECT SEND_FUNCTION, SEND_ONLINE_ORDER, SEND_WAIT_TIME, SEND_MIN_AMOUNT
+		  FROM SHOPMEMDATA
+		  WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findSendOrderNoticeByShopId" parameterType="string" resultMap="shopDataVOMap">
+		  SELECT SEND_ORDER_WAY, SEND_EMAIL, SEND_SMS, SEND_ANDROID
+		  FROM SHOPMEMDATA
+		  WHERE SHOP_ID = #{shopId}
+	</select>
+
+</mapper>

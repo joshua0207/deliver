@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ServiceTimeTrsDAO">
+
+	<!-- <cache /> -->
+
+	<insert id="createServiceTimeDay" parameterType="ServiceTimeDay">
+		insert into SERVICE_TIME_DAY 
+		      ( SERVICE_ID, SHOP_ID, SERVICE_TIME_BEGIN, SERVICE_MINUTE_BEGIN, 
+			   SERVICE_TIME_END, SERVICE_MINUTE_END, SERVICE_DAY, UPDATE_DATE )
+		values ( #{serviceId}, #{shopId}, #{serviceTimeBegin}, #{serviceMinuteBegin},
+		        #{serviceTimeEnd}, #{serviceMinuteEnd}, #{serviceDay}, now() )
+	</insert>
+	
+	<delete id="deleteServiceTimeDay" parameterType="ServiceTimeDay">
+		delete from SERVICE_TIME_DAY
+		where SHOP_ID=#{shopId}
+	</delete>
+	
+	<delete id="deleteSendTimeDay" parameterType="SendTimeDay">
+		delete from SEND_TIME_DAY
+		where SHOP_ID=#{shopId}
+	</delete>
+	
+	<insert id="createSendTimeDay" parameterType="SendTimeDay">
+		insert into SEND_TIME_DAY 
+		      ( SEND_ID, SHOP_ID, SEND_TIME_BEGIN, SEND_MINUTE_BEGIN, 
+			   SEND_TIME_END, SEND_MINUTE_END, SEND_DAY, UPDATE_DATE )
+		values ( #{sendId}, #{shopId}, #{sendTimeBegin}, #{sendMinuteBegin},
+		        #{sendTimeEnd}, #{sendMinuteEnd}, #{sendDay}, now() )
+	</insert>
+	
+	<delete id="deleteHoliDay" parameterType="ShopHoliDay">
+		delete from SHOP_HOLI_DAY
+		where SHOP_ID=#{shopId}
+	</delete>
+	
+	<insert id="createHoliDay" parameterType="ShopHoliDay">
+		insert into SHOP_HOLI_DAY 
+		      ( HOLI_ID, SHOP_ID, HOLI_DATE, UPDATE_DATE )
+		values ( #{holiId}, #{shopId}, #{holiDate}, now() )
+	</insert>
+
+</mapper>

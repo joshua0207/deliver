@@ -1,0 +1,387 @@
+@charset "UTF-8";
+/*Defaults Styling*/
+body {font:12px/17px Arial, Helvetica, sans-serif; color:#333; background:#fff;margin:0;padding:0;}
+fieldset {background:#f2f2e6; padding:10px; border:1px solid #fff; border-color:#fff #666661 #666661 #fff; margin-bottom:36px; width:600px;}
+input, textarea, select {font:12px/12px Arial, Helvetica, sans-serif; margin:0;padding:0;}
+fieldset.action {background:#9da2a6; border-color:#e5e5e5 #797c80 #797c80 #e5e5e5; margin-top:-20px;}
+legend {background:#bfbf30; color:#fff; font:17px/21px Calibri, Arial, Helvetica, sans-serif; padding:0 10px; margin:-26px 0 0 -11px; font-weight:bold; border:1px solid #fff; border-color:#e5e5c3 #505014 #505014 #e5e5c3;}
+label {font-size:11px; font-weight:bold; color:#666;}
+label.opt {font-weight:normal;}
+dl {clear:both;}
+dt {float:left; text-align:right; width:90px; line-height:25px; margin:0 10px 10px 0;}
+dd {float:left; width:475px; line-height:25px; margin:0 0 10px 0;}
+img{border:0 none}
+/*.serviceTerm*/
+input[type=text] 
+{
+	width:130px;
+}
+
+input[type=password] 
+{
+	width:130px;
+}
+
+.serviceTermForm{
+	margin:0 auto;
+	padding:10px 0;
+
+	height:auto;
+	}
+.serviceTermForm h3{
+	text-align:center;
+	color:#fb9512;
+	font-size:16px;
+	font-family:"微軟正黑體";
+	}
+.serviceTermForm_orange{
+	margin:0 auto;
+	width:699px;
+	height:530px;
+	border-top:#fb9512 1px solid;
+	border-left:#fb9512 1px solid;
+	border-right:#fb9512 1px solid;
+	border-bottom:#fb9512 1px solid;
+	overflow:auto;
+	padding:10px 20px;
+	}
+.serviceTermForm_orange ul{
+	margin:0;
+	padding:0;
+	color:#fb9512;
+	}
+.serviceTermForm_orange ul h3{
+	color:#fb9512;
+	font-size:12px;
+	text-align:left;
+	letter-spacing:.1em;
+	line-height:20px;
+	}
+.serviceTermForm_orange li{
+	margin-left:18px;
+	text-align:left;
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#757575;
+	list-style-type:decimal;
+	letter-spacing:.1em;
+	line-height:20px;
+	}
+.serviceTermForm_orange li{
+	margin:10px 0 0 18px;
+	text-align:left;
+	font-size:13px;
+	font-family:Verdana, Geneva, sans-serif;
+	color:#e73828;
+	list-style-type:decimal;
+	letter-spacing:.1em;
+	line-height:20px;
+	}
+.serviceTermForm_orange li span{
+	color:#757575;
+	}
+/*shopData*/	
+.shopDataForm{
+	margin:0 auto;
+	width:500px;
+	height:auto;
+	border:#fb9512 1px solid;
+	font-size:13px;
+	coloe:#757575;
+	}
+.shopDataForm th{
+	background-color:#ffebd1;
+	text-align:left;
+	color:#e73828;
+	padding:5px;
+	height:18px;
+	border-bottom:#fb9512 1px solid;
+	}
+.shopDataForm td{
+	background-color:#ffebd1;
+	text-align:left;
+	color:#757575;
+	padding:5px;
+	height:10px;
+	border-bottom:#fb9512 1px solid;
+	}
+.shopDataForm td.fillbox{
+	margin:0;
+	padding:0;
+	width:15px;
+	height:15px;
+	}
+.shopDataForm .embg{
+	background-color:#fff;
+	text-align:left;
+	color:#757575;
+	padding:5px;
+	width:170px;
+	height:10px;
+	border-bottom:#fb9512 1px solid;
+	}
+.shopDataForm .embg2{
+	background-color:#fff;
+	text-align:left;
+	color:#757575;
+	padding:5px;
+	width:170px;
+	border-bottom:none;
+	}
+.shopDataForm label{
+	color:#e73828;}
+.shopDataForm .fillembg{
+	background-color:#fff;
+	text-align:left;
+	height:22px;
+	border-left:#fb9512 1px solid;
+	}
+.shopDataForm .shopstyle{
+	background-color:#fff;
+	text-align:left;
+	height:10px;
+	border-left:#fb9512 1px solid;
+	border-bottom:none;
+	}
+.shopDataForm .shopstylefood{
+	background-color:#fff;
+	text-align:left;
+	height:10px;
+	border:none;
+	}
+.shopDataBtnForm{
+	height:32px;
+	text-align:center;
+}
+
+
+.shopData_btnSend_general{
+	width:81px;
+	height:32px;
+	display:inline-block;
+	background-image:url(/cbg-include/images/shopbase/btn_register_agree.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
+	text-indent:-999px;
+	border:none 0;
+	cursor:pointer;
+
+	}
+.shopData_btnSend_hover{
+	width:81px;
+	background-position:0 -32px;
+	}
+	
+	
+.shopDataBtnForm .shopData_btnSend{
+	width:81px;
+	height:32px;
+	display:inline-block;
+	background-image:url(/cbg-include/images/shopbase/btn_register_send.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
+	text-indent:1px;
+	border:none 0;
+	cursor:pointer;
+
+	}
+.shopDataBtnForm .shopData_btnSend:hover{
+	width:81px;
+	background-position:0 -32px;
+	}
+	
+.shopDataBtnForm .shopData_btnTest{
+	width:81px;
+	height:32px;
+	display:block;
+	background-image:url(/cbg-include/images/shopbase/btn_register_test.png);
+	background-repeat:no-repeat;
+	background-position:0 0;
+	text-indent:-999px;
+	border:none 0;
+	cursor:pointer;
+	margin:10px auto;
+	}
+.shopDataBtnForm .shopData_btnTest:hover{
+	width:81px;
+	background-position:0 -32px;
+	}	
+	
+	
+/*choiceservice*/
+.choiceServiceForm{
+	width:649px;
+	height:auto;
+	margin:10px auto;
+	}
+.choiceOneService{
+	width:100%;
+	}
+.serviceBox{
+	width:210px;
+	float:left;
+	margin-right:6px;
+	text-align:center;
+	}
+.serviceChoiceList{
+	width:649px;
+	height:500px;
+	margin-top:5px;
+	text-align:center;
+	background-image:url(/cbg-include/images/shopbase/register_method.png);
+	background-repeat:no-repeat;
+	}/*固定會更會員註冊服務區塊*/
+.specialAc{
+	width:649px;
+	height:96px;
+	margin-top:10px;
+	background-image:url(/cbg-include/images/shopbase/special_ac.png);
+	background-repeat:no-repeat;
+	}/*固定會更換優惠訊息區塊*/
+.choicePayStyle{
+	margin:0;
+	text-align:left;
+	}
+.choicePayStyle ul{
+	margin:0;
+	padding:0;
+	}
+.choicePayStyle h3{
+	margin:0;
+	padding-top:10px;
+	color:#e73828;
+	font-family:"微軟正黑體";
+	text-align:left;
+	}
+.choicePayStyle ul li{
+	margin:0;
+	padding:5px 0;
+	list-style:none;
+	color:#fb9512;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif;
+	border-bottom:#fb9512 1px dotted;
+	}
+.choicePayStyle p{
+	margin:0;
+	padding:5px 0;
+	}
+
+/*registerSuccessForm*/
+.registerSuccessForm{
+	border:#fb9512 1px solid;
+	width:300px;
+	height:auto;
+	padding:20px 10px;
+	text-align:center;
+	line-height:20px;
+	position:relative;
+	margin-left:30%;
+	margin-top:20%;
+	margin-bottom:20%;
+	}
+.registerSuccessForm h3{
+	color:#fb9512;
+	font-size:16px;
+	margin:0;
+	}
+.registerSuccessForm p{
+	font-size:13px;
+	}
+.registerSuccessForm p span{
+	color:#e73828;
+	}
+.registerSuccessForm p span a{
+	color:#e73828;
+	text-decoration:underline;
+	}
+.registerSuccessForm p span a:hover{
+	color:#e73828;
+	text-decoration:none;
+	}
+	
+
+
+
+/*##########################################
+Script: Niceforms 2.0
+Theme: StandardBlue
+Author: Lucian Slatineanu
+URL: http://www.emblematiq.com/
+##########################################*/
+
+/*Text inputs*/
+.NFText {border:none; vertical-align:middle; font:12px/15px Arial, Helvetica, sans-serif; background:none;}
+.NFTextCenter {height:15px; background:url(/cbg-include/images/shopbase/input.png) repeat-x 0 0; padding:3px 0; margin:0; float:left; line-height:15px;}
+.NFTextLeft, .NFTextRight {width:7px; height:21px; vertical-align:middle; float:left;}
+.NFTextLeft {background:url(/cbg-include/images/shopbase/input-left.png) no-repeat 0 0;}
+.NFTextRight {background:url(/cbg-include/images/shopbase/input-right.png) no-repeat 0 0;}
+/*Radio*/
+.NFRadio {cursor:pointer; position:absolute;width:13px; height:13px; border:1px solid transparent; background:url(/cbg-include/images/shopbase/radio.png) no-repeat 0 0; z-index:2;}
+/*Checkbox*/
+.NFCheck {cursor:pointer; position:absolute; width:12px; height:12px; border:1px solid transparent; background:url(/cbg-include/images/shopbase/checkbox.png) no-repeat 0 0; z-index:2;}
+/*Buttons*/
+.NFButton {width:auto; height:26px; color:#fff; padding:0 2px; background:url(/cbg-include/images/shopbase/button.png) repeat-x 0 0; cursor:pointer; border:none; font:10px/26px Tahoma, Arial, Helvetica, sans-serif; font-weight:bold; text-transform:uppercase; letter-spacing:1px; vertical-align:middle;}
+.NFButtonLeft, .NFButtonRight {width:6px; height:26px; vertical-align:middle;}
+.NFButtonLeft {background:url(/cbg-include/images/shopbase/button-left.png) no-repeat 0 0;}
+.NFButtonRight {background:url(/cbg-include/images/shopbase/button-right.png) no-repeat 0 0;}
+/*Textareas*/
+.NFTextarea {border:none; background:none; font:12px/12px Arial, Helvetica, sans-serif; margin:0;}
+.NFTextareaTop, .NFTextareaBottom {height:5px; clear:both; float:none; padding-right:10px;}
+.NFTextareaTop {background:url(/cbg-include/images/shopbase/textarea-tr.png) no-repeat 100% 0;}
+.NFTextareaBottom {background:url(/cbg-include/images/shopbase/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+.NFTextareaTopLeft, .NFTextareaBottomLeft {width:5px; height:5px;}
+.NFTextareaTopLeft {background:#f2f2e6 url(/cbg-include/images/shopbase/textarea-tl.png) no-repeat 0 0;}
+.NFTextareaBottomLeft {background:#f2f2e6 url(/cbg-include/images/shopbase/textarea-bl.png) no-repeat 0 0;}
+.NFTextareaLeft, .NFTextareaRight, .NFTextareaLeftH, .NFTextareaRightH {float:left; padding-bottom:5px;}
+.NFTextareaLeft, .NFTextareaLeftH {width:5px;}
+.NFTextareaLeft {background:url(/cbg-include/images/shopbase/textarea-l-off.png) repeat-y 0 0;}
+.NFTextareaLeftH {background:url(/cbg-include/images/shopbase/textarea-l-over.png) repeat-y 0 0;}
+.NFTextareaRight, .NFTextareaRightH {padding-right:5px; padding-bottom:0;}
+.NFTextareaRight {background:url(/cbg-include/images/shopbase/textarea-r-off.png) repeat-y 100% 0;}
+.NFTextareaRightH {background:url(/cbg-include/images/shopbase/textarea-r-over.png) repeat-y 100% 100%;}
+/*Files*/
+.NFFileButton {padding-bottom:0; vertical-align:bottom; cursor:pointer; background:url(/cbg-include/images/shopbase/file.png) no-repeat 0 0; width:60px; height:21px;}
+.NFFile {position:relative; margin-bottom:5px;}
+.NFFile input.NFhidden {position:relative; filter:alpha(opacity=0); opacity:0; z-index:2; cursor:pointer; text-align:left;}
+.NFFileNew {position:absolute; top:0px; left:0px; z-index:1;}
+/*Selects*/
+.NFSelect {height:21px;float:left;border:1px solid transparent;}
+.NFSelectLeft {float:left; width:3px; height:21px; background:url(/cbg-include/images/shopbase/select-left.png) no-repeat 0 0; vertical-align:middle;}
+.NFSelectRight {height:21px; width:auto; background:url(/cbg-include/images/shopbase/select-right.png) no-repeat 100% 0; cursor:pointer; font:12px/21px Arial, Helvetica, sans-serif; color:#ff6000; padding-left:3px; margin-left:3px;}
+.NFSelectTarget {float:left; background:none; margin-left:-13px;z-index:3; left:0; top:0; padding-bottom:13px;}
+.NFSelectOptions {position:relative; background:#fb9512; margin-left:16px; margin-top:0; list-style:none; padding:4px 0; color:#fff; font:11px/13px Arial, Helvetica, sans-serif; z-index:4; max-height:200px; overflow-y:auto; overflow-x:hidden; left:0; top:0;}
+.NFSelectOptions li {padding-bottom:1px;}
+.NFSelectOptions a {display:block; text-decoration:none; color:#fff; padding:2px 3px; background:none;}
+.NFSelectOptions a.NFOptionActive {background:#464646;}
+.NFSelectOptions a:hover {background:#ffac62;}
+/*Multiple Selects*/
+.NFMultiSelect {border:0; background:none; margin:0;}
+.NFMultiSelectTop, .NFMultiSelectBottom {height:5px; clear:both; float:none; padding-right:10px;}
+.NFMultiSelectTop {background:url(/cbg-include/images/shopbase/textarea-tr.png) no-repeat 100% 0;}
+.NFMultiSelectBottom {background:url(/cbg-include/images/shopbase/textarea-br.png) no-repeat 100% 0; margin-bottom:5px;}
+.NFMultiSelectTopLeft, .NFMultiSelectBottomLeft {width:5px; height:5px;}
+.NFMultiSelectTopLeft {background:#f2f2e6 url(/cbg-include/images/shopbase/textarea-tl.png) no-repeat 0 0;}
+.NFMultiSelectBottomLeft {background:#f2f2e6 url(/cbg-include/images/shopbase/textarea-bl.png) no-repeat 0 0;}
+.NFMultiSelectLeft, .NFMultiSelectRight, .NFMultiSelectLeftH, .NFMultiSelectRightH {float:left; padding-bottom:5px;}
+.NFMultiSelectLeft, .NFMultiSelectLeftH {width:5px;}
+.NFMultiSelectLeft {background:url(/cbg-include/images/shopbase/textarea-l-off.png) repeat-y 0 0;}
+.NFMultiSelectLeftH {background:url(/cbg-include/images/shopbase/textarea-l-over.png) repeat-y 0 0;}
+.NFMultiSelectRight, .NFMultiSelectRightH {padding-right:5px; padding-bottom:0;}
+.NFMultiSelectRight {background:url(/cbg-include/images/shopbase/textarea-r-off.png) repeat-y 100% 0;}
+.NFMultiSelectRightH {background:url(/cbg-include/images/shopbase/textarea-r-over.png) repeat-y 100% 0;}
+
+/*Focused*/
+.NFfocused {border:1px dotted #666;}
+/*Hovered*/
+.NFh {background-position:0 100%;}
+.NFhr {background-position:100% 100%;}
+/*Hidden*/
+.NFhidden {opacity:0; z-index:-1; position:relative;}
+/*Safari*/
+select, input, textarea, button {
+	outline:none;
+	resize:none;
+	top:0;
+	left:0;
+}

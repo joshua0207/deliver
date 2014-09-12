@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE jboss-web>
+<jboss-web>
+ <context-root>/</context-root>
+ <virtual-host>deliver.mtaxi.com.tw</virtual-host>
+</jboss-web>

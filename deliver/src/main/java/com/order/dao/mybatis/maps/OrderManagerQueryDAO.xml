@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.OrderManagerQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="customPoMastMap" type="CustomPoMast">
+		<result property="orderId" column="ORDER_ID" />
+		<result property="orderStatus" column="ORDER_STATUS" />
+		<result property="orderConfirmDate" column="ORDER_CONFIRM_DATE" />
+		<result property="orderAmount" column="ORDER_AMOUNT" />
+		<result property="contactName" column="CONTACT_NAME" />
+		<result property="contactPhone" column="CONTACT_PHONE" />
+		<result property="deliverFlag" column="DELIVER_FLAG" />
+		<result property="orderKind" column="ORDER_KIND" />
+		<result property="deliverAddress" column="DELIVER_ADDRESS" />
+		<result property="deliverDateTime" column="DELIVER_DATE_TIME" />
+		<result property="orderSource" column="ORDER_SOURCE" />
+		<result property="shopmemo" column="SHOPMEMO" />
+	</resultMap>
+	
+	<resultMap id="shopPoDetlMap" type="ShopPoDetl">
+		<result property="itemName" column="ITEM_NAME" />
+		<result property="unitPrice" column="UNIT_PRICE" />
+		<result property="qty" column="QTY" />
+		<result property="amount" column="AMOUNT" />
+		<result property="itemDetl" column="ITEM_DETL" />
+	</resultMap>
+	
+	
+	<select id="findCustomPoMastByShopIdAndDay" parameterType="map" resultMap="customPoMastMap">
+		SELECT ORDER_ID, ORDER_STATUS, DATE_FORMAT(ORDER_CONFIRM_DATE, '%Y-%m-%d %H:%i:%s') ORDER_CONFIRM_DATE, ORDER_AMOUNT, 
+			   CONTACT_NAME, CONTACT_PHONE, DELIVER_FLAG, ORDER_KIND , DELIVER_ADDRESS,
+			   DATE_FORMAT(DELIVER_DATE_TIME, '%Y-%m-%d %H:%i:%s') DELIVER_DATE_TIME 
+		FROM CUSTOM_PO_MAST
+		WHERE SHOP_ID = #{shopId} 
+		 AND ONLINE_PAYMENT = 'Y'
+		 <![CDATA[ and ORDER_CONFIRM_DATE >= STR_TO_DATE(#{queryDate},'%Y/%m/%d %H:%i:%s') ]]>
+		 <![CDATA[ and ORDER_CONFIRM_DATE <= STR_TO_DATE(#{queryDateEnd},'%Y/%m/%d %H:%i:%s') ]]> 
+		order by ORDER_CONFIRM_DATE ASC
+	</select>
+	
+	<select id="findCustomPoMastByOrderId" parameterType="string" resultMap="customPoMastMap">
+		SELECT ORDER_ID, ORDER_SOURCE, ORDER_KIND, CONTACT_NAME, CONTACT_PHONE, DELIVER_ADDRESS, 
+			   DATE_FORMAT(DELIVER_DATE_TIME, '%Y-%m-%d %H:%i:%s') DELIVER_DATE_TIME, ORDER_AMOUNT,
+			   SHOPMEMO
+		FROM CUSTOM_PO_MAST
+		WHERE ORDER_ID = #{orderId} 
+	</select>
+	
+	<select id="findShopPoDetlByKey" parameterType="map" resultMap="shopPoDetlMap">
+		SELECT ITEM_NAME, UNIT_PRICE, QTY, AMOUNT, ITEM_DETL
+		FROM SHOP_PO_DETL
+		WHERE ORDER_ID = #{orderId} and SHOP_ID = #{shopId}
+	</select>
+	
+
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.MenuCategoryQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="menuCategoryMap" type="MenuCategory">
+		<result property="menuCatId" column="MENU_CAT_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="menuCatName" column="MENU_CAT_NAME" />
+		<result property="menuCatNote" column="MENU_CAT_NOTE" />
+		<result property="sort" column="SORT" />
+		<result property="hideFlag" column="HIDE_FLAG" />
+	</resultMap>
+	
+	<resultMap id="menuCategoryVOMap" type="MenuCategoryVO">
+		<result property="menuCatId" column="MENU_CAT_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="menuCatName" column="MENU_CAT_NAME" />
+		<result property="menuCatNote" column="MENU_CAT_NOTE" />
+		<result property="sort" column="SORT" />
+		<result property="hideFlag" column="HIDE_FLAG" />
+		<result property="productCount" column="PRODUCT_COUNT" />
+	</resultMap>
+	
+	<select id="findMenuCategoryByShopId" parameterType="string" resultMap="menuCategoryVOMap">
+		SELECT MENU_CAT_ID, SHOP_ID, MENU_CAT_NAME, MENU_CAT_NOTE, SORT, HIDE_FLAG,
+		( SELECT count(0) count FROM MENU_PRODUCT WHERE MENU_CAT_ID = A.MENU_CAT_ID ) as PRODUCT_COUNT
+		FROM MENU_CATEGORY as A
+		WHERE SHOP_ID = #{shopId}
+		ORDER BY SORT
+	</select>
+	
+	<select id="findMenuCategoryByMenuCatId" parameterType="string" resultMap="menuCategoryMap">
+		SELECT MENU_CAT_ID, SHOP_ID, MENU_CAT_NAME, MENU_CAT_NOTE, SORT, HIDE_FLAG
+		FROM MENU_CATEGORY
+		WHERE MENU_CAT_ID = #{menuCatId}
+	</select>
+	
+	<select id="findCountMenuProductByMenuCatId" parameterType="map" resultType="integer">
+		SELECT count(0) count
+		FROM MENU_PRODUCT
+		WHERE MENU_CAT_ID = #{menuCatId} and SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findAllByKey" parameterType="string" resultMap="menuCategoryMap">
+		SELECT MENU_CAT_ID, SHOP_ID, MENU_CAT_NAME, MENU_CAT_NOTE, SORT, HIDE_FLAG
+		FROM MENU_CATEGORY
+		WHERE SHOP_ID = #{shopId}
+		ORDER BY SORT
+	</select>
+	
+	
+
+</mapper>

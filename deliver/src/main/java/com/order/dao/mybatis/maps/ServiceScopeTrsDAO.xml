@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ServiceScopeTrsDAO">
+
+	<!-- <cache /> -->
+
+	<insert id="createServiceScopeCircle" parameterType="ServiceScopeCircle">
+		insert into SERVICE_SCOPE_CIRCLE 
+		      ( CIRCLE_ID, SHOP_ID, CIRCLE_CENTER, CIRCLE_TAN, 
+			   DISTANCE, MAX_LNG, MAX_LAT, MIN_LNG, MIN_LAT, UPDATE_DATE )
+		values ( #{circleId}, #{shopId}, #{circleCenter}, #{circleTan},
+		        #{distance}, #{maxLng}, #{maxLat}, #{minLng}, #{minLat}, now() )
+	</insert>
+	
+	<update id="updateServiceScopeCircle" parameterType="ServiceScopeCircle">
+		update SERVICE_SCOPE_CIRCLE
+		set CIRCLE_CENTER=#{circleCenter}, 
+		    CIRCLE_TAN=#{circleTan},
+		    DISTANCE=#{distance},
+		    MAX_LNG=#{maxLng},
+		    MAX_LAT=#{maxLat},
+		    MIN_LNG=#{minLng},
+		    MIN_LAT=#{minLat},
+		    UPDATE_DATE = now()
+		where SHOP_ID=#{shopId}
+	</update>
+
+</mapper>

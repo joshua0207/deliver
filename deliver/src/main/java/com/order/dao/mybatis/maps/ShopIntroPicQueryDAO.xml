@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ShopIntroPicQueryDAO">
+
+	<!-- <cache /> -->
+	
+	<resultMap id="shopIntroducePicMap" type="ShopIntroducePic">
+		<result property="shopInfoId" column="SHOP_INFO_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="shopContent" column="SHOP_CONTENT" />
+		<result property="shopActivityNews" column="SHOP_ACTIVITY_NEWS" />
+		<result property="shopMemo" column="SHOP_MEMO" />
+		<result property="shopInfoDate" column="SHOP_INFO_DATE" />
+		<result property="shopLogoPath" column="SHOP_LOGO_PATH" />
+		<result property="shopLogoDate" column="SHOP_LOGO_DATE" />
+		<result property="shopBigPath" column="SHOP_BIG_PATH" />
+		<result property="shopBigDate" column="SHOP_BIG_DATE" />
+	</resultMap>
+	
+	<resultMap id="shopAllPicMap" type="ShopAllPicture">
+		<result property="uploId" column="UPLO_ID" />
+		<result property="shopId" column="SHOP_ID" />
+		<result property="uploPath" column="UPLO_PATH" />
+		<result property="uploDescrp" column="UPLO_DESCRP" />
+		<result property="uploTransDate" column="UPLO_TRANS_DATE" />
+	</resultMap>
+	
+	
+	<select id="findByKey" parameterType="map" resultMap="shopIntroducePicMap">
+		SELECT SHOP_INFO_ID, SHOP_ID, SHOP_CONTENT, SHOP_ACTIVITY_NEWS, SHOP_MEMO, SHOP_INFO_DATE, SHOP_LOGO_PATH
+		, SHOP_LOGO_DATE, SHOP_BIG_PATH, SHOP_BIG_DATE
+		FROM SHOP_INTRODUCE_PIC
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findByShopIsAdd" parameterType="map" resultType="integer">
+		SELECT count(0) count
+		FROM SHOP_INTRODUCE_PIC
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findShopInfoByShopId" parameterType="map" resultMap="shopIntroducePicMap">
+		SELECT SHOP_INFO_ID, SHOP_ID, SHOP_CONTENT, SHOP_ACTIVITY_NEWS, SHOP_MEMO, SHOP_INFO_DATE
+		FROM SHOP_INTRODUCE_PIC
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findShopLogoByShopId" parameterType="map" resultMap="shopIntroducePicMap">
+		SELECT SHOP_INFO_ID, SHOP_ID, SHOP_LOGO_PATH
+		FROM SHOP_INTRODUCE_PIC
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findRectangularBigPicByShopId" parameterType="map" resultMap="shopIntroducePicMap">
+		SELECT SHOP_INFO_ID, SHOP_ID, SHOP_BIG_PATH
+		FROM SHOP_INTRODUCE_PIC
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	<select id="findShopAllPicByShopId" parameterType="map" resultMap="shopAllPicMap">
+		SELECT UPLO_ID, SHOP_ID, UPLO_PATH, UPLO_DESCRP
+		FROM SHOP_ALL_PICTURE
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+
+</mapper>

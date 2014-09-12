@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.ShopBaseQueryDAO">
+
+	<!-- <cache /> -->
+
+	<resultMap id="shopDataMap" type="ShopMemData">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="userPw" column="USER_PW" />
+		<result property="coName" column="CO_NAME" />
+		<result property="coNum" column="CO_NUM" />
+		<result property="coPeople" column="CO_PEOPLE" />
+		<result property="addrL" column="ADDR_L" />
+		<result property="addrLCity" column="ADDR_L_CITY" />
+		<result property="addrLCanton" column="ADDR_L_CANTON" />
+		<result property="addrLDetail" column="ADDR_L_DETAIL" />
+		<result property="addrC" column="ADDR_C" />
+		<result property="addrCCity" column="ADDR_C_CITY" />
+		<result property="addrCCanton" column="ADDR_C_CANTON" />
+		<result property="addrCDetail" column="ADDR_C_DETAIL" />
+		<result property="tel" column="TEL" />
+		<result property="mobilePhone" column="MOBILE_PHONE" />
+		<result property="telOrder" column="TEL_ORDER" />
+		<result property="email" column="EMAIL" />
+		<result property="invoiceType" column="INVOICE_TYPE" />
+		<result property="invoiceName" column="INVOICE_NAME" />
+		<result property="identNum" column="IDENT_NUM" />
+	</resultMap>
+	
+	<resultMap id="shopBaseVOMap" type="ShopBaseManagerVO">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="userPw" column="USER_PW" />
+		<result property="coName" column="CO_NAME" />
+		<result property="coNum" column="CO_NUM" />
+		<result property="coPeople" column="CO_PEOPLE" />
+		<result property="addrL" column="ADDR_L" />
+		<result property="addrLCity" column="ADDR_L_CITY" />
+		<result property="addrLCanton" column="ADDR_L_CANTON" />
+		<result property="addrLDetail" column="ADDR_L_DETAIL" />
+		<result property="addrC" column="ADDR_C" />
+		<result property="addrCCity" column="ADDR_C_CITY" />
+		<result property="addrCCanton" column="ADDR_C_CANTON" />
+		<result property="addrCDetail" column="ADDR_C_DETAIL" />
+		<result property="tel" column="TEL" />
+		<result property="mobilePhone" column="MOBILE_PHONE" />
+		<result property="telOrder" column="TEL_ORDER" />
+		<result property="email" column="EMAIL" />
+		<result property="invoiceType" column="INVOICE_TYPE" />
+		<result property="invoiceName" column="INVOICE_NAME" />
+		<result property="identNum" column="IDENT_NUM" />
+		<result property="shopParameter" column="SHOP_PARAMETER" />
+		<result property="emailAuth" column="EMAIL_AUTH" />
+		<result property="mobileParameter" column="MOBILE_PARAMETER" />
+	</resultMap>
+	
+	<resultMap id="shopTypeMap" type="ShopType">
+		<result property="shopTypeId" column="SHOP_TYPE_ID" />
+		<result property="shopTypeName" column="SHOP_TYPE_NAME" />
+	</resultMap>
+	
+	<resultMap id="myShopTypeIdMap" type="MyShopTypeId">
+		<result property="shopId" column="SHOP_ID" />
+		<result property="shopTypeId" column="SHOP_TYPE_ID" />
+	</resultMap>
+	
+	<select id="findAllByIdPassword" parameterType="map" resultMap="shopDataMap">
+		SELECT SHOP_ID, USER_PW, CO_NAME , CO_NUM, CO_PEOPLE, ADDR_L, ADDR_L_CITY, ADDR_L_CANTON, ADDR_L_DETAIL,
+		ADDR_C, ADDR_C_CITY, ADDR_C_CANTON, ADDR_C_DETAIL, TEL, MOBILE_PHONE, TEL_ORDER,
+		EMAIL, INVOICE_TYPE, INVOICE_NAME, IDENT_NUM
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId} AND USER_PW = #{password}
+	</select>
+	
+	<select id="findAllByIdPasswordForVO" parameterType="map" resultMap="shopBaseVOMap">
+		SELECT SHOP_ID, USER_PW, CO_NAME , CO_NUM, CO_PEOPLE, ADDR_L, ADDR_L_CITY, ADDR_L_CANTON, ADDR_L_DETAIL,
+		ADDR_C, ADDR_C_CITY, ADDR_C_CANTON, ADDR_C_DETAIL, TEL, MOBILE_PHONE, TEL_ORDER,
+		EMAIL, INVOICE_TYPE, INVOICE_NAME, IDENT_NUM, SHOP_PARAMETER, MOBILE_PARAMETER
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId} AND USER_PW = #{password}
+	</select>
+	
+	<select id="findAllShopType" parameterType="map" resultMap="shopTypeMap">
+		select SHOP_TYPE_ID, SHOP_TYPE_NAME from SHOP_TYPE
+	</select>
+	
+	<select id="findShopTypeByShopId" parameterType="map" resultMap="myShopTypeIdMap">
+		SELECT M.SHOP_ID,M.SHOP_TYPE_ID FROM
+		SHOP_TYPE S  inner join MY_SHOP_TYPE_ID M on
+		M.SHOP_ID = #{shopId} and M.SHOP_TYPE_ID = S.SHOP_TYPE_ID
+		ORDER BY S.SHOP_TYPE_ID
+	</select>
+	
+	<select id="chkShopLogin" parameterType="map" resultMap="shopDataMap">
+		SELECT SHOP_ID, USER_PW, CO_NAME , CO_NUM, CO_PEOPLE, ADDR_L, ADDR_L_CITY, ADDR_L_CANTON, ADDR_L_DETAIL,
+		ADDR_C, ADDR_C_CITY, ADDR_C_CANTON, ADDR_C_DETAIL, TEL, MOBILE_PHONE, TEL_ORDER,
+		EMAIL, INVOICE_TYPE, INVOICE_NAME, IDENT_NUM
+		FROM SHOPMEMDATA
+		WHERE SHOP_ID = #{shopId} AND USER_PW = #{password}
+	</select>
+	
+	<select id="chkOldPassword" parameterType="map" resultType="Integer">
+		SELECT COUNT(0) count FROM SHOPMEMDATA 
+		WHERE SHOP_ID = #{shopId} AND USER_PW = #{password}
+	</select>
+	
+	<select id="checkShopId" parameterType="string" resultType="Integer">
+		SELECT COUNT(0) count FROM SHOPMEMDATA 
+		WHERE SHOP_ID = #{shopId}
+	</select>
+	
+	
+
+</mapper>

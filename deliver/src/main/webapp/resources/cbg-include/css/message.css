@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+button{border:0 none;cursor:pointer;}
+.nomessage_title{
+	color:#84B721;
+	font:15px Arial, Helvetica, sans-serif;
+	}
+.noreplayForm{
+	width:100%;
+	height:auto;
+	margin:5px 0;
+	}
+.storymessageForm{
+	width:100%;
+	height:auto;
+	margin:5px 0;
+	padding:0 0 10px 0;
+	border-bottom:#84B721 2px solid;
+	}
+.noreplayFormTitle{
+	background-color:#FFEEE3;
+	border-right:none;
+	color:#FF8431;
+	padding:.3em;
+	margin:10px 0 0 0 ;
+	}
+.noreplayName{
+	color:#FF8431;
+	float:left;
+	}
+.noreplayposttime{
+	color:#727171;
+	float:right;
+	}
+.tableForm{
+	color:#727171;
+	border:#B2B2B2 1px solid;
+	/*table-layout:fixed;*/
+	border-collapse:collapse;
+	width:530px;
+	padding:0;
+	}
+.tableForm td{
+	padding:.3em;
+	border:#B2B2B2 1px solid;
+	font:12px Arial, Helvetica, sans-serif;
+	line-height:18px;
+	text-align:justify;
+	}
+.tableForm td P{
+	color:#FF8431;
+	font:13px Arial, Helvetica, sans-serif;
+	margin:0;
+	padding:0;
+	}
+.tableForm td.pic{
+	width:69px;
+	}
+.fontorange{
+	color:#FF8431;
+	}
+.btn_glay{
+	background-image:url(/cbg-include/images/messagecontrol/btn_glaybg.jpg);
+	background-repeat:no-repeat;
+	width:118px;
+	height:21px;
+	color:#4f4f4f;
+	vertical-align:middle;
+	padding:1px;
+	font-size:12px;
+	margin:10px 0;
+	float:right;
+	}
+.btn_glay2{
+	background-image:url(/cbg-include/images/messagecontrol/btn_glaybg.jpg);
+	background-repeat:no-repeat;
+	width:118px;
+	height:21px;
+	color:#4f4f4f;
+	vertical-align:middle;
+	padding:1px;
+	font-size:12px;
+	margin:10px 0;
+	}
+.textglay{
+	color:#4f4f4f;
+	font:12px Arial, Helvetica, sans-serif;
+	line-height:18px;
+	text-align:justify;
+	}

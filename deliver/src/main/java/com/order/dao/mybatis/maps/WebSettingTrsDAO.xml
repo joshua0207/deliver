@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.WebSettingTrsDAO">
+
+	<!-- <cache /> -->
+
+	<update id="updateSendSetting" parameterType="ShopMemData">
+		update SHOPMEMDATA
+		set SEND_FUNCTION=#{sendFunction}, 
+		    SEND_ONLINE_ORDER=#{sendOnlineOrder},
+		    SEND_WAIT_TIME=#{sendWaitTime},
+		    SEND_MIN_AMOUNT = #{sendMinAmount}
+		where SHOP_ID=#{shopId}
+	</update>
+	
+	<update id="updateSendOrderNotice" parameterType="ShopMemData">
+		update SHOPMEMDATA
+		set SEND_ORDER_WAY=#{sendOrderWay}, 
+		    SEND_EMAIL=#{sendEmail},
+		    SEND_SMS=#{sendSms},
+		    SEND_ANDROID = #{sendAndroid}
+		where SHOP_ID=#{shopId}
+	</update>
+
+</mapper>

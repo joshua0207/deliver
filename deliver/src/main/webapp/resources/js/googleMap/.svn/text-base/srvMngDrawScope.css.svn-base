@@ -1,0 +1,108 @@
+@charset "UTF-8";
+.swfTeach{
+	float:50%;
+	position:absolute;
+	text-align:left;
+	top:50%;
+}
+.srvBody {
+	margin:0;
+	font-family:"微軟正黑體";
+}
+.paintForm{
+	width:auto;
+	height:25px;
+	color:#4f4f4f;
+	font-size:12px;
+	padding:5px;
+}
+.srv_dl{
+	margin:0;
+	padding:0;
+}
+.srv_dt{
+	margin:0 5px;
+	list-style:none;
+	float:left;
+	text-align:center;
+}
+.srv_dt a{
+	color:#4f4f4f;
+	text-decoration:none;
+}
+.srv_dt a:hover{
+	color:#000;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.srv_dd{
+	margin:0 5px;
+	height:26px;
+	list-style:none;
+	float:left;
+	
+}
+.srv_dd a{
+	color:#4f4f4f;
+	text-decoration:none;
+	cursor:pointer;	
+}
+.srv_dd a:hover{
+	color:#000;
+	text-decoration:none;
+	font-size:14px;
+	corsor:pointer;	
+}
+
+.srv_drawingForm{
+	width:auto;
+	padding:5px 8px;
+}
+.smallMap{
+	width:530px;
+	height:400px;
+}
+.bigMap{
+	text-align:left;
+	margin:0px;
+	padding:0px;
+	width:100%;
+	height:100%;
+}
+
+.latlngDiv{
+	width:120px;
+	height:20px;
+	position:absolute;
+	background-color:#FFF;
+	z-index:2;
+}
+
+.tipsDiv{
+	width:130px;
+	height:20px;
+	position:absolute;
+	background-color:#fff;
+	display:none;
+}
+
+.dstDiv{
+	width:130px;
+	height:40px;
+	position:absolute;
+	padding-top:20px;		
+	background-color:#fff;
+	display:none;	
+}
+
+.toolbarDiv{
+	position:absolute;	
+}
+
+.spaceWidth{
+	width:40%;
+}
+.disableDiv{
+	display:none;
+}

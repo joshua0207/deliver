@@ -1,0 +1,141 @@
+
+@charset "UTF-8";
+.addBtn {
+    background-image: url("../../images/shopMenu/addBtn.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 27px;
+    margin-bottom: 5px;
+    text-indent: -9999px;
+    width: 61px;
+}
+.deleteBtn {
+    background-image: url("../../images/shopMenu/deleteBtn.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 27px;
+    margin-bottom: 5px;
+    text-indent: -9999px;
+    width: 61px;
+}
+.saveBtn {
+    background-image: url("../../images/shopMenu/saveBtn.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 27px;
+    margin-bottom: 5px;
+    text-indent: -9999px;
+    width: 61px;
+}
+.cancelBtn {
+    background-image: url("../../images/shopMenu/cancelBtn.png");
+    background-repeat: no-repeat;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 27px;
+    margin-bottom: 5px;
+    text-indent: -9999px;
+    width: 61px;
+}
+.addFormBtn {
+    height: 27px;
+    margin-bottom: 10px;
+}
+.addFormBtn ul {
+    margin: 0;
+    padding: 0;
+}
+.addFormBtn ul li {
+    float: left;
+    height: 27px;
+    list-style: none outside none;
+    margin: 0;
+    padding-right: 10px;
+    width: 61px;
+}
+.orangeSort {
+    background-color: #ffdbc2;
+    border: 2px solid #fff;
+    color: #333;
+    font-size: 12px;
+    height: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 200px;
+}
+.orangeSort1 {
+    background-color: #ffdbc2;
+    border: 2px solid #fff;
+    color: #333;
+    font-size: 12px;
+    height: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 63px;
+}
+.orangeCheck {
+    background-color: #ffdbc2;
+    border: 2px solid #fff;
+    color: #333;
+    height: 15px;
+    padding: 5px;
+    text-align: center;
+    width: 30px;
+}
+.sortName {
+    color: #4f4f4f;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 5px;
+    width: 200px;
+}
+.editWord {
+    color: #000;
+    font-size: 12px;
+}
+.editWord a {
+    color: #000;
+    text-decoration: underline;
+}
+.editWord a:hover {
+    color: #000;
+    text-decoration: none;
+}
+.bor {
+    border-bottom: 1px solid #ffceab;
+}
+.saveCancelBtn {
+    height: 27px;
+    margin-bottom: 10px;
+}
+.saveCancelBtn ul {
+    margin: 0;
+    padding: 0;
+}
+.saveCancelBtn ul li {
+    float: left;
+    height: 27px;
+    list-style: none outside none;
+    margin: 0;
+    padding-right: 10px;
+    width: 75px;
+}
+.orangeSortTitle {
+    background-color: #ffdbc2;
+    border: 2px solid #fff;
+    color: #333;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    width: 60px;
+}
+a:focus {
+    outline: 0 none;
+}

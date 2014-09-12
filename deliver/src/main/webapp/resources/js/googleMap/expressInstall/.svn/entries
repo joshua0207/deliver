@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://jerryyang-pc:8443/svn/web"
+   name=""
+   revision="90"
+   last-author="shane"
+   url="https://jerryyang-pc:8443/svn/web/newshopadmin/WebContent/js/googleMap/expressInstall"
+   committed-rev="34"
+   kind="dir"
+   committed-date="2013-06-13T02:35:36.648000Z"/>
+<entry
+   name="expressInstall.swf"
+   checksum="204f4711f899c1aa766791daafc7a552"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="34"
+   kind="file"
+   committed-date="2013-06-13T02:35:36.648000Z"
+   prop-time="2013-06-13T02:35:34.110000Z"/>
+<entry
+   name="swfobject_modified.js"
+   checksum="1f8099c909d4244ae2c8f82a17fd94a4"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="34"
+   kind="file"
+   committed-date="2013-06-13T02:35:36.648000Z"/>
+</wc-entries>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.order.dao.VerifyTrsDAO">
+
+	<!-- <cache /> -->
+
+	
+	<update id="updateShopBaseAuth" parameterType="ShopMemData">
+		update SHOPMEMDATA
+		set EMAIL_AUTH = #{emailAuth}
+		where SHOP_ID=#{shopId}
+	</update>
+	
+	<update id="updateSmsData" parameterType="SmsPOVO">
+		update CUSTOM_PO_SMS
+		set STATUS_CODE = {STATUS_CODE} , 
+		UPDATE_DATE = STR_TO_DATE({UPDATE_DATE},'%Y%m%d%H%i%s') ,
+		STATUS_CODE_DESC = {STATUS_CODE_DESC} 
+		where MSG_ID = {MSG_ID} and PHONE_NUM = {PHONE_NUM}
+	</update>
+	
+	<update id="updateCustomPOMastMsgInfoTime" parameterType="map">
+		update CUSTOM_PO_MAST
+		set MESSAGE_INFORM_TIME = STR_TO_DATE({orderID},'%Y%m%d%H%i%s') ,
+		UPDATE_DATE = now()
+		where ORDER_ID = {finishTime} 
+	</update>
+	
+	<insert id="insertCustomPOSmsData" parameterType="SmsPOVO">
+		insert into CUSTOM_PO_SMS(ORDER_ID, MSG_ID, STATUS_CODE,
+		PHONE_NUM, STATUS_CODE_DESC, UPDATE_DATE, RELATION_ID)
+		values(#{ORDER_ID}, #{MsgId}, #{StatusCode}, #{PHONE_NUM}, #{StatusCodeDesc}, now(), #{RELATION_ID})
+	</insert>
+	
+	<update id="updateShopBasePhoneAuth" parameterType="ShopMemData">
+		update SHOPMEMDATA
+		set PHONE_AUTH = #{phoneAuth}
+		where SHOP_ID=#{shopId}
+	</update>
+
+
+</mapper>

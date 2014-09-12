@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   repos="https://jerryyang-pc:8443/svn/web"
+   name=""
+   revision="105"
+   last-author="shane"
+   url="https://jerryyang-pc:8443/svn/web/newshopadmin/WebContent/images/shopServiceScope"
+   committed-rev="105"
+   kind="dir"
+   committed-date="2013-07-15T07:58:33.505000Z"/>
+<entry
+   name="cancelarea.png"
+   checksum="2a613c3f428d6007a530e4b67bb8dec2"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.707000Z"/>
+<entry
+   name="cancelareaDisabled.png"
+   checksum="f4acbde61fe26d989ece7f6e8d3580f1"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.680000Z"/>
+<entry
+   name="g_btn1.png"
+   checksum="2cd23bbec5a56522384c668617824b8a"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.732000Z"/>
+<entry
+   name="g_btn1_onclick.png"
+   checksum="64c7fb2dcb3e05a02415ee69e2df1d95"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.662000Z"/>
+<entry
+   name="g_btn2.png"
+   checksum="70d83ce530862410681a75c806ee2170"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.686000Z"/>
+<entry
+   name="g_btn2_onclick.png"
+   checksum="08829694ae4784d24a149a27c4212857"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.668000Z"/>
+<entry
+   name="g_btn3.png"
+   checksum="d106872ae37b560411b3d591afb64d21"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.720000Z"/>
+<entry
+   name="g_btn3_onclick.png"
+   checksum="e123bb1f398873770203e47ca6e44ba9"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.630000Z"/>
+<entry
+   name="g_close.png"
+   checksum="6f89d02fd2bb5b154b3de5150d760166"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.613000Z"/>
+<entry
+   name="g_help.png"
+   checksum="c91873ef73bea17026e9583cd2e13211"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.641000Z"/>
+<entry
+   name="g_move.png"
+   checksum="dd1a709bf5e9237d919f081512782095"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.713000Z"/>
+<entry
+   name="g_move_onclick.png"
+   checksum="9f136c948d938128cb284c178b889a1e"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.607000Z"/>
+<entry
+   name="g_tool.png"
+   checksum="971b276e6b04d6bd850eadbaef6838ed"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.624000Z"/>
+<entry
+   name="paint_area.png"
+   checksum="888516d13656ca68cbf2a560a022d3b0"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.656000Z"/>
+<entry
+   name="reback.png"
+   checksum="6b5371e4685ad925ffcd023c3576750a"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.700000Z"/>
+<entry
+   name="savearea.png"
+   checksum="4dfbd7e0ee582a1071794328258cfa4c"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.674000Z"/>
+<entry
+   name="saveareaDisabled.png"
+   checksum="f75b49891c7e7808d79ff0d0b5f33e64"
+   last-author="shane"
+   text-time="2013-06-05T10:00:05.629000Z"
+   committed-rev="105"
+   kind="file"
+   committed-date="2013-07-15T07:58:33.505000Z"
+   prop-time="2013-07-15T07:55:45.635000Z"/>
+<entry
+   name="swf"
+   kind="dir"/>
+</wc-entries>
